@@ -1,0 +1,110 @@
+﻿<UserControl x:Class="SE104___WPF.CC_Report"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:SE104___WPF"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+         TextElement.FontWeight="Regular"
+         TextElement.FontSize="13"
+         TextOptions.TextFormattingMode="Ideal"
+         TextOptions.TextRenderingMode="Auto"
+         Background="{DynamicResource MaterialDesignPaper}"
+         FontFamily="{DynamicResource MaterialDesignFont}"
+             mc:Ignorable="d" 
+             d:DesignHeight="600" d:DesignWidth="729">
+    <Grid Background="#DEDEDE" Margin="-1,0,1,0">
+        <!--<Grid.ColumnDefinitions>
+            <ColumnDefinition Width="231"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>-->
+
+        <Border 
+            Background="White" 
+            BorderBrush="white" 
+            BorderThickness="1,1,1,1" 
+            CornerRadius="10,10,10,10" 
+            HorizontalAlignment="Center" 
+            Width="664" Margin="0,14,0,526"
+            >
+            <Grid>
+                <TextBlock Margin="292,12,118,8" 
+                           RenderTransformOrigin="-0.069,0.593" 
+                           FontSize="28"
+                           Foreground="#71AADC"
+                           FontWeight="Bold"
+                           >
+                    <TextBlock.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform Angle="0.024"/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </TextBlock.RenderTransform>REPORT</TextBlock>
+
+            </Grid>
+        </Border>
+
+        <Border 
+            Background="White" 
+            BorderBrush="white" 
+            BorderThickness="1,1,1,1" 
+            CornerRadius="10,10,10,10" 
+            HorizontalAlignment="Left" 
+            Width="664" Margin="34,168,0,57"
+            >
+            <Grid/>
+        </Border>
+        <TextBlock Margin="112,86,554,488" 
+            RenderTransformOrigin="-0.069,0.593" 
+            FontSize="17"
+            Foreground="#54667A"
+            Text="Type:"
+            FontWeight="Bold"
+                           >
+            <TextBlock.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="0.024"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </TextBlock.RenderTransform></TextBlock>
+        <ComboBox HorizontalAlignment="Left" Margin="199,79,0,0" VerticalAlignment="Top" Width="421"/>
+        <TextBlock Margin="110,116,533,458" 
+            RenderTransformOrigin="-0.069,0.593" 
+            FontSize="17"
+            Foreground="#54667A"
+            Text="Subject:"
+            FontWeight="Bold"
+                           >
+            <TextBlock.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="0.024"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </TextBlock.RenderTransform></TextBlock>
+        <TextBlock Margin="391,116,256,458" 
+            RenderTransformOrigin="-0.069,0.593" 
+            FontSize="17"
+            Foreground="#54667A"
+            Text="Semester:"
+            FontWeight="Bold"
+                           >
+            <TextBlock.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="0.024"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </TextBlock.RenderTransform></TextBlock>
+        <ComboBox HorizontalAlignment="Left" Margin="199,109,0,0" VerticalAlignment="Top" Width="144"/>
+        <ComboBox HorizontalAlignment="Left" Margin="476,109,0,0" VerticalAlignment="Top" Width="144"/>
+    </Grid>
+</UserControl>
+

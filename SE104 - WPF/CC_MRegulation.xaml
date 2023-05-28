@@ -1,0 +1,384 @@
+﻿<UserControl x:Class="SE104___WPF.CC_MRegulation"
+
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:SE104___WPF"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+         TextElement.FontWeight="Regular"
+         TextElement.FontSize="13"
+         TextOptions.TextFormattingMode="Ideal"
+         TextOptions.TextRenderingMode="Auto"
+         Background="{DynamicResource MaterialDesignPaper}"
+         FontFamily="{DynamicResource MaterialDesignFont}"
+             mc:Ignorable="d" 
+             d:DesignHeight="600" d:DesignWidth="729">
+    <Grid Background="#DEDEDE" Margin="-1,0,1,0">
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="9*"/>
+        </Grid.RowDefinitions>
+        <!--<Grid.ColumnDefinitions>
+            <ColumnDefinition Width="231"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>-->
+
+        <Border 
+            Background="White" 
+            BorderBrush="white" 
+            BorderThickness="1,1,1,1" 
+            CornerRadius="10,10,10,10" 
+            HorizontalAlignment="Center" 
+            Width="664" Margin="0,14,0,526" Grid.RowSpan="2"
+            >
+            <Grid>
+                <TextBlock Margin="199,12,155,8" 
+                           RenderTransformOrigin="-0.069,0.593" 
+                           FontSize="28"
+                           Foreground="#71AADC"
+                           FontWeight="Bold"
+                           >
+                    <TextBlock.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform Angle="0.024"/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </TextBlock.RenderTransform>MANAGE REGULATION</TextBlock>
+
+            </Grid>
+        </Border>
+        <TextBlock Margin="44,181,439,333" 
+            RenderTransformOrigin="-0.069,0.593" 
+            FontSize="17"
+            Foreground="#54667A"
+            Text="Max student of class:" Grid.Row="1"
+                           >
+            <TextBlock.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="0.024"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </TextBlock.RenderTransform></TextBlock>
+        <TextBox
+            Background="white"
+            BorderBrush="#54667A"
+            Padding="10"
+            VerticalAlignment="Top"
+            Style="{StaticResource MaterialDesignOutlinedTextBox}" Margin="238,171,102,0" Height="39" Grid.Row="1" />
+        <Button
+            Background="#00BDDA"
+            BorderBrush="#00BDDA"
+            materialDesign:ButtonAssist.CornerRadius="3"
+            Style="{StaticResource MaterialDesignRaisedDarkButton}"
+            ToolTip="MaterialDesignRaisedDarkButton with Round Corners" Margin="646,119,29,389" RenderTransformOrigin="1.016,2.003"  Grid.Row="1" >
+            <Button.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleY="0.023"/>
+                    <RotateTransform Angle="0.236"/>
+                    <TranslateTransform X="-0.198" Y="0.273"/>
+                </TransformGroup>
+            </Button.RenderTransform>
+
+            <Image
+                Source="C:\dev\SE104 - WPF\SE104 - WPF\img\edit.png" RenderTransformOrigin="0.5,0.5" Width="27" Height="21" >
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform ScaleX="-0.85" ScaleY="-0.85"/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="-180"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+        </Button>
+        <TextBlock Margin="44,67,439,447" 
+            RenderTransformOrigin="-0.069,0.593" 
+            FontSize="17"
+            Foreground="#54667A"
+            Text="Max student age:" Grid.Row="1"
+                           >
+            <TextBlock.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="0.024"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </TextBlock.RenderTransform></TextBlock>
+        <TextBox
+            Background="white"
+            BorderBrush="#54667A"
+            Padding="10"
+            VerticalAlignment="Top"
+            Style="{StaticResource MaterialDesignOutlinedTextBox}" Margin="238,57,102,0" Height="39" Grid.Row="1" />
+        <Button
+            Background="#00BDDA"
+            BorderBrush="#00BDDA"
+            materialDesign:ButtonAssist.CornerRadius="3"
+            Style="{StaticResource MaterialDesignRaisedDarkButton}"
+            ToolTip="MaterialDesignRaisedDarkButton with Round Corners" Margin="646,60,29,448" RenderTransformOrigin="1.016,2.003"  Grid.Row="1" >
+            <Button.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleY="0.023"/>
+                    <RotateTransform Angle="0.236"/>
+                    <TranslateTransform X="-0.198" Y="0.273"/>
+                </TransformGroup>
+            </Button.RenderTransform>
+
+            <Image
+                Source="C:\dev\SE104 - WPF\SE104 - WPF\img\edit.png" RenderTransformOrigin="0.5,0.5" Width="27" Height="21" >
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform ScaleX="-0.85" ScaleY="-0.85"/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="-180"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+        </Button>
+        <Button
+            Background="#00BDDA"
+            BorderBrush="#00BDDA"
+            materialDesign:ButtonAssist.CornerRadius="3"
+            Style="{StaticResource MaterialDesignRaisedDarkButton}"
+            ToolTip="MaterialDesignRaisedDarkButton with Round Corners" Margin="646,176,29,332" RenderTransformOrigin="1.016,2.003"  Grid.Row="1" >
+            <Button.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleY="0.023"/>
+                    <RotateTransform Angle="0.236"/>
+                    <TranslateTransform X="-0.198" Y="0.273"/>
+                </TransformGroup>
+            </Button.RenderTransform>
+
+            <Image
+                Source="C:\dev\SE104 - WPF\SE104 - WPF\img\edit.png" RenderTransformOrigin="0.5,0.5" Width="27" Height="21" >
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform ScaleX="-0.85" ScaleY="-0.85"/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="-180"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+        </Button>
+        <Button
+            Background="#00BDDA"
+            BorderBrush="#00BDDA"
+            materialDesign:ButtonAssist.CornerRadius="3"
+            Style="{StaticResource MaterialDesignRaisedDarkButton}"
+            ToolTip="MaterialDesignRaisedDarkButton with Round Corners" Margin="646,235,29,273" RenderTransformOrigin="1.016,2.003" Grid.Row="1" >
+            <Button.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleY="0.023"/>
+                    <RotateTransform Angle="0.236"/>
+                    <TranslateTransform X="-0.198" Y="0.273"/>
+                </TransformGroup>
+            </Button.RenderTransform>
+
+            <Image
+                Source="C:\dev\SE104 - WPF\SE104 - WPF\img\edit.png" RenderTransformOrigin="0.5,0.5" Width="27" Height="21" >
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform ScaleX="-0.85" ScaleY="-0.85"/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="-180"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+        </Button>
+        <Button
+            Background="#00BDDA"
+            BorderBrush="#00BDDA"
+            materialDesign:ButtonAssist.CornerRadius="3"
+            Style="{StaticResource MaterialDesignRaisedDarkButton}"
+            ToolTip="MaterialDesignRaisedDarkButton with Round Corners" Margin="645,337,30,171" RenderTransformOrigin="1.016,2.003" Grid.Row="1" Click="Button_Click_2" >
+            <Button.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleY="0.023"/>
+                    <RotateTransform Angle="0.236"/>
+                    <TranslateTransform X="-0.198" Y="0.273"/>
+                </TransformGroup>
+            </Button.RenderTransform>
+
+            <Image
+                Source="C:\dev\SE104 - WPF\SE104 - WPF\img\edit.png" RenderTransformOrigin="0.5,0.5" Width="27" Height="21" >
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform ScaleX="-0.85" ScaleY="-0.85"/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="-180"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+        </Button>
+        <Button
+            Background="#00BDDA"
+            BorderBrush="#00BDDA"
+            materialDesign:ButtonAssist.CornerRadius="3"
+            Style="{StaticResource MaterialDesignRaisedDarkButton}"
+            ToolTip="MaterialDesignRaisedDarkButton with Round Corners" Margin="646,397,29,111" RenderTransformOrigin="1.016,2.003"  Grid.Row="1" Click="Button_Click_3" >
+            <Button.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleY="0.023"/>
+                    <RotateTransform Angle="0.236"/>
+                    <TranslateTransform X="-0.198" Y="0.273"/>
+                </TransformGroup>
+            </Button.RenderTransform>
+
+            <Image
+                Source="C:\dev\SE104 - WPF\SE104 - WPF\img\edit.png" RenderTransformOrigin="0.5,0.5" Width="27" Height="21" >
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform ScaleX="-0.85" ScaleY="-0.85"/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="-180"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+        </Button>
+        <TextBlock Margin="52,357,431,157" 
+            RenderTransformOrigin="-0.069,0.593" 
+            FontSize="17"
+            Foreground="#54667A"
+            Text="Number of classes:" Grid.Row="1"
+                           >
+            <TextBlock.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="0.024"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </TextBlock.RenderTransform></TextBlock>
+        <TextBox
+            Background="white"
+            BorderBrush="#54667A"
+            Padding="10"
+            VerticalAlignment="Top"
+            Style="{StaticResource MaterialDesignOutlinedTextBox}" Margin="238,232,102,0" Height="39" Grid.Row="1" />
+        <TextBlock Margin="44,125,439,389" 
+            RenderTransformOrigin="-0.069,0.593" 
+            FontSize="17"
+            Foreground="#54667A"
+            Text="Min student age:" Grid.Row="1"
+                           >
+            <TextBlock.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="0.024"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </TextBlock.RenderTransform></TextBlock>
+        <TextBox
+            Background="white"
+            BorderBrush="#54667A"
+            Padding="10"
+            VerticalAlignment="Top"
+            Style="{StaticResource MaterialDesignOutlinedTextBox}" Margin="238,115,102,0" Height="39" Grid.Row="1" />
+        <TextBlock Margin="50,411,433,103" 
+            RenderTransformOrigin="-0.069,0.593" 
+            FontSize="17"
+            Foreground="#54667A"
+            Text="Number of subjects:" Grid.Row="1"
+                           >
+            <TextBlock.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="0.024"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </TextBlock.RenderTransform></TextBlock>
+        <TextBlock Margin="44,242,439,272" 
+            RenderTransformOrigin="-0.069,0.593" 
+            FontSize="17"
+            Foreground="#54667A"
+            Text="Grade passing the test:" Grid.Row="1"
+                           >
+            <TextBlock.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="0.024"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </TextBlock.RenderTransform></TextBlock>
+        <TextBox HorizontalAlignment="Left" Margin="232,349,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="318" Grid.Row="1" />
+        <Button
+            Background="#00CF4D"
+            BorderBrush="#00CF4D"
+            materialDesign:ButtonAssist.CornerRadius="3"
+            Style="{StaticResource MaterialDesignRaisedDarkButton}"
+            ToolTip="MaterialDesignRaisedDarkButton with Round Corners" Margin="573,339,102,169" RenderTransformOrigin="1.016,2.003" Grid.Row="1" Click="Button_Click"  >
+            <Button.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleY="0.023"/>
+                    <RotateTransform Angle="0.236"/>
+                    <TranslateTransform X="-0.198" Y="0.273"/>
+                </TransformGroup>
+            </Button.RenderTransform>
+
+            <Image
+                Source="C:\dev\SE104 - WPF\SE104 - WPF\img\plus.png" RenderTransformOrigin="0.5,0.5" Width="27" Height="21" >
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform ScaleX="-0.85" ScaleY="-0.85"/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="-180"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+        </Button>
+        <Button
+            Background="#00CF4D"
+            BorderBrush="#00CF4D"
+            materialDesign:ButtonAssist.CornerRadius="3"
+            Style="{StaticResource MaterialDesignRaisedDarkButton}"
+            ToolTip="MaterialDesignRaisedDarkButton with Round Corners" Margin="574,396,101,112" RenderTransformOrigin="1.016,2.003" Grid.Row="1" Click="Button_Click_1" >
+            <Button.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleY="0.023"/>
+                    <RotateTransform Angle="0.236"/>
+                    <TranslateTransform X="-0.198" Y="0.273"/>
+                </TransformGroup>
+            </Button.RenderTransform>
+
+            <Image
+                Source="C:\dev\SE104 - WPF\SE104 - WPF\img\plus.png" RenderTransformOrigin="0.5,0.5" Width="27" Height="21" >
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform ScaleX="-0.85" ScaleY="-0.85"/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="-180"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+        </Button>
+        <TextBox HorizontalAlignment="Left" Margin="232,403,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="318" Grid.Row="1" />
+
+
+    </Grid>
+</UserControl>
+

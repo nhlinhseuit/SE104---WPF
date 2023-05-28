@@ -1,0 +1,161 @@
+﻿<Window x:Class="SE104___WPF.AddStudentToClass"
+
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SE104___WPF"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+         TextElement.FontWeight="Regular"
+         TextElement.FontSize="13"
+         TextOptions.TextFormattingMode="Ideal"
+         TextOptions.TextRenderingMode="Auto"
+         Background="{DynamicResource MaterialDesignPaper}"
+         FontFamily="{DynamicResource MaterialDesignFont}"
+         mc:Ignorable="d"
+        Title="AddStudentToClass" Height="600" Width="960">
+    <Grid Margin="-3,0,3,0">
+        <TextBlock Margin="330,17,13,518" 
+            RenderTransformOrigin="-0.069,0.593" 
+            FontSize="28"
+            Foreground="#71AADC"
+            FontWeight="Bold"
+                           >
+            <TextBlock.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="0.024"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </TextBlock.RenderTransform><Run Text="MANAGE STUDENT"/></TextBlock>
+        <TextBlock Margin="172,55,433,487" 
+            RenderTransformOrigin="-0.069,0.593" 
+            FontSize="17"
+            Foreground="#54667A"
+            Text="Enter ID student to add to class:"
+                           >
+            <TextBlock.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="0.024"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </TextBlock.RenderTransform></TextBlock>
+        <Border 
+            Background="White" 
+            BorderBrush="#54667A" 
+            BorderThickness="1,1,1,1" 
+            CornerRadius="10, 10, 10,10" 
+            HorizontalAlignment="Left" 
+            Width="419" Margin="170,86,0,443"
+            >
+            <Grid Margin="0,0,0,-5">
+                <materialDesign:PackIcon Foreground="#54667A" Kind="Magnify" Margin="17,6,0,0" Height="23" Width="31" />
+
+                <TextBlock Margin="62,8,67,-14" 
+                    RenderTransformOrigin="-0.069,0.593" 
+                    FontSize="17"
+                    Foreground="#54667A"
+                    Text="ID student"
+                           >
+                    <TextBlock.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform Angle="0.024"/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </TextBlock.RenderTransform></TextBlock>
+
+
+            </Grid>
+
+
+
+        </Border>
+        <Button
+            Background="#0089E2"
+            BorderBrush="#0089E2"
+            materialDesign:ButtonAssist.CornerRadius="3"
+            Style="{StaticResource MaterialDesignRaisedDarkButton}"
+            ToolTip="MaterialDesignRaisedDarkButton with Round Corners" Margin="606,9,235,369" RenderTransformOrigin="0.5,0.5"  >
+            <Button.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="0.236"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Button.RenderTransform>
+            <TextBlock FontWeight="Medium"
+                Text="Search" />
+        </Button>
+        <Border 
+            Background="White" 
+            BorderBrush="#54667A" 
+            BorderThickness="1,1,1,1" 
+            CornerRadius="10,10,10,10" 
+            HorizontalAlignment="Center" 
+            Width="664" Margin="0,146,0,110"
+            >
+            <Grid/>
+        </Border>
+        <Button
+            Background="#00CF4D"
+            BorderBrush="#00CF4D"
+            materialDesign:ButtonAssist.CornerRadius="3"
+            Style="{StaticResource MaterialDesignRaisedDarkButton}"
+            ToolTip="MaterialDesignRaisedDarkButton with Round Corners" Margin="656,475,159,48" RenderTransformOrigin="0.5,0.5"  >
+            <Button.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleY="0.006"/>
+                    <RotateTransform Angle="0.236"/>
+                    <TranslateTransform Y="0.008"/>
+                </TransformGroup>
+            </Button.RenderTransform>
+            <TextBlock FontWeight="Medium"
+                Text="ADD STUDENT" Width="181" Height="16">
+                <TextBlock.Effect>
+                    <DropShadowEffect
+                        ShadowDepth="1"
+                        Direction="330"
+                        Color="Black"
+                        Opacity="0.5"
+                        BlurRadius="4"/>
+                </TextBlock.Effect>
+            </TextBlock>
+        </Button>
+        <Button
+            Background="#FF9722"
+            BorderBrush="#FF9722"
+            materialDesign:ButtonAssist.CornerRadius="3"
+            Style="{StaticResource MaterialDesignRaisedDarkButton}"
+            ToolTip="MaterialDesignRaisedDarkButton with Round Corners" Margin="821,371,14,-58" RenderTransformOrigin="0.5,0.5" Click="Button_Click"  >
+            <Button.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleY="0.006"/>
+                    <RotateTransform Angle="0.236"/>
+                    <TranslateTransform Y="0.008"/>
+                </TransformGroup>
+            </Button.RenderTransform>
+            <TextBlock FontWeight="Medium"
+                Text="CANCEL" >
+                <TextBlock.Effect>
+                    <DropShadowEffect
+                        ShadowDepth="1"
+                        Direction="330"
+                        Color="Black"
+                        Opacity="0.5"
+                        BlurRadius="4"/>
+                </TextBlock.Effect>
+            </TextBlock>
+        </Button>
+
+
+    </Grid>
+</Window>

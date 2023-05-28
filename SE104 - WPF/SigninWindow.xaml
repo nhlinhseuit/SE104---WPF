@@ -1,0 +1,147 @@
+﻿<Window x:Class="SE104___WPF.SigninWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SE104___WPF"
+        mc:Ignorable="d"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+         TextElement.FontWeight="Regular"
+         TextElement.FontSize="13"
+         TextOptions.TextFormattingMode="Ideal"
+         TextOptions.TextRenderingMode="Auto"
+         Background="{DynamicResource MaterialDesignPaper}"
+         FontFamily="{DynamicResource MaterialDesignFont}"
+        Title="SigninWindow" Height="600" Width="960">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="197*"/>
+            <ColumnDefinition Width="34*"/>
+        </Grid.ColumnDefinitions>
+        <Image
+            Margin="-604,-56,-604,-97"
+            Grid.Row="0" Source="C:\dev\SE104 - WPF\SE104 - WPF\img\bg.png" RenderTransformOrigin="0.5,0.5" Grid.ColumnSpan="2" >
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="0.85" ScaleY="0.85"/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-0.089"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
+
+        <Image
+            Margin="603,21,61,484"
+            Grid.Row="0" Source="C:\dev\SE104 - WPF\SE104 - WPF\img\logo.png" RenderTransformOrigin="0.5,0.5" Grid.ColumnSpan="2" >
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="0.85" ScaleY="0.85"/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-0.089"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
+
+        <Image
+            Margin="494,88,-51,441"
+            Grid.Row="0" Source="C:\dev\SE104 - WPF\SE104 - WPF\img\HELLO AGAIN!.png" RenderTransformOrigin="0.5,0.5" Grid.ColumnSpan="2" >
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="0.85" ScaleY="0.85"/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-0.089"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
+
+        <Image
+            Margin="517,124,-24,417"
+            Grid.Row="0" Source="C:\dev\SE104 - WPF\SE104 - WPF\img\Welcome back to our app!.png" RenderTransformOrigin="0.5,0.5" Grid.ColumnSpan="2" >
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="0.85" ScaleY="0.85"/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-0.089"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
+
+        <!--<TextBox Margin="538,256,102,292" Background="white" Foreground="#ccc"  Text="Username" >
+            <TextBox.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="3"/>
+                </Style>
+            </TextBox.Resources>
+        </TextBox>-->
+
+        <TextBox
+                Background="white"
+                BorderBrush="White"
+                Padding="10"
+                VerticalAlignment="Top"
+                materialDesign:HintAssist.Hint="Username"
+                Style="{StaticResource MaterialDesignOutlinedTextBox}" Margin="572,202,30,0" Height="39" Grid.ColumnSpan="2">
+        </TextBox>
+
+        <TextBox
+            Background="white"
+            BorderBrush="White"
+            Padding="10"
+            
+            VerticalAlignment="Center"
+            materialDesign:HintAssist.Hint="Password"
+            Style="{StaticResource MaterialDesignOutlinedTextBox}" Margin="572,0,30,0" Height="39" Grid.ColumnSpan="2">
+        </TextBox>
+
+        <CheckBox Margin="572,312,186,220" Foreground="white"/>
+        <TextBlock Margin="602,320,96,229" Grid.ColumnSpan="2" Foreground="#686868" Text="Remember me"/>
+        <TextBlock Margin="777,320,-79,220" Foreground="Black" RenderTransformOrigin="0.819,0.562" FontWeight="Bold" Grid.ColumnSpan="2">
+            <Hyperlink NavigateUri="http://stackoverflow.com">Forgot password?</Hyperlink>
+        </TextBlock>
+
+        <Button
+                Background="#71AADC"
+                BorderBrush="#71AADC"
+                materialDesign:ButtonAssist.CornerRadius="15"
+                IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+                Style="{StaticResource MaterialDesignRaisedDarkButton}"
+                ToolTip="MaterialDesignRaisedDarkButton with Round Corners" Margin="602,356,60,155" RenderTransformOrigin="0.5,0.5" Grid.ColumnSpan="2" Click="Button_Click" >
+            <Button.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="0.236"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Button.RenderTransform>
+            <TextBlock
+                    Text="LOG IN" ></TextBlock>
+        </Button>
+
+        <Button
+                Background="#FFF"
+                BorderBrush="#fff"
+            Foreground="Black"
+                materialDesign:ButtonAssist.CornerRadius="15"
+                IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+                Style="{StaticResource MaterialDesignRaisedDarkButton}"
+                ToolTip="MaterialDesignRaisedDarkButton with Round Corners" Margin="602,423,59,92" RenderTransformOrigin="0.5,0.5" Grid.ColumnSpan="2" Click="Button_Click_1">
+            <Button.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="0.236"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Button.RenderTransform>
+            <TextBlock
+                    Text="SIGN UP" />
+        </Button>
+    </Grid>
+</Window>
+
