@@ -29,6 +29,8 @@ namespace SE104___WPF
         private readonly List<TextBlock> textBlocks = new List<TextBlock>();
         private readonly List<MaterialDesignThemes.Wpf.PackIcon> packIcons = new List<MaterialDesignThemes.Wpf.PackIcon>();
 
+        public ICommand navStudent { get; set; }
+
         //private readonly List<buttonObject> buttonObjects = new List<buttonObject>();
         private void CenterWindowOnScreen()
         {
@@ -48,6 +50,7 @@ namespace SE104___WPF
             buttons.AddRange(new[] { btnMStudent, btnMClass, btnMGrade, btnMRegulation, btnReport });
             textBlocks.AddRange(new[] { textMStudent, textMClass, textMGrade, textMRegulation, textReport });
             packIcons.AddRange(new[] { iconMStudent, iconMClass, iconMGrade, iconMRegulation, iconReport });
+
 
 
         }

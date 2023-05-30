@@ -13,7 +13,7 @@
          Background="{DynamicResource MaterialDesignPaper}"
          FontFamily="{DynamicResource MaterialDesignFont}"
         mc:Ignorable="d"
-        Title="ProfileStudent" Height="437" Width="429">
+        Title="ProfileStudent" Height="452" Width="429">
     <Grid>
         <TextBlock Margin="131,15,-39,344" 
             RenderTransformOrigin="-0.069,0.593" 
@@ -31,62 +31,60 @@
                 </TransformGroup>
             </TextBlock.RenderTransform></TextBlock>
         <TextBox
+            IsReadOnly="True"
+            x:Name="txtboxID"
             Background="white"
             BorderBrush="#54667A"
             Padding="10"
             VerticalAlignment="Top"
             materialDesign:HintAssist.Hint="ID"
-            Style="{StaticResource MaterialDesignOutlinedTextBox}" Margin="20,58,20,0" Height="31" Grid.ColumnSpan="4" />
+            Style="{StaticResource MaterialDesignOutlinedTextBox}" Margin="20,58,20,0" Height="43" />
         <TextBox
+            x:Name="txtboxName"
             Background="white"
             BorderBrush="#54667A"
             Padding="10"
             VerticalAlignment="Top"
             materialDesign:HintAssist.Hint="Full name"
-            Style="{StaticResource MaterialDesignOutlinedTextBox}" Margin="20,108,20,0" Height="32"/>
-        <Grid>
+            Style="{StaticResource MaterialDesignOutlinedTextBox}" Margin="20,106,20,0" Height="44"/>
 
-            <TextBox
-            Background="white"
-            BorderBrush="#54667A"
-            Padding="10"
-            VerticalAlignment="Top"
-            materialDesign:HintAssist.Hint="Day of birth"
-            Style="{StaticResource MaterialDesignOutlinedTextBox}" Margin="20,156,20,0" Height="32" ></TextBox>
-
-            <Image
-            Margin="354,166,12,240"
-             Source="C:\dev\SE104 - WPF\SE104 - WPF\img\calendar.png" RenderTransformOrigin="0.5,0.5" >
-                <Image.RenderTransform>
-                    <TransformGroup>
-                        <ScaleTransform ScaleX="-0.85" ScaleY="-0.85"/>
-                        <SkewTransform/>
-                        <RotateTransform Angle="-180"/>
-                        <TranslateTransform/>
-                    </TransformGroup>
-                </Image.RenderTransform>
-            </Image>
-        </Grid>
         <TextBox
-            Background="white"
-            BorderBrush="#54667A"
-            Padding="10"
-            VerticalAlignment="Top"
-            materialDesign:HintAssist.Hint="Gender"
-            Style="{StaticResource MaterialDesignOutlinedTextBox}" Margin="20,208,20,0" Height="32"/>
-        <TextBox
+            x:Name="txtboxAddress"
             Background="white"
             BorderBrush="#54667A"
             Padding="10"
             VerticalAlignment="Top"
             materialDesign:HintAssist.Hint="Address"
-            Style="{StaticResource MaterialDesignOutlinedTextBox}" Margin="20,259,20,0" Height="31"/>
+            Style="{StaticResource MaterialDesignOutlinedTextBox}" Margin="20,155,20,0" Height="45"/>
+        <TextBox
+            x:Name="txtboxEmail"
+            Background="white"
+            BorderBrush="#54667A"
+            Padding="10"
+            VerticalAlignment="Top"
+            materialDesign:HintAssist.Hint="Email"
+            Style="{StaticResource MaterialDesignOutlinedTextBox}" Margin="20,205,20,0" Height="47"/>
+        <DatePicker x:Name="datePickerNgsinh" Margin="21,262,19,0" 
+                    BorderBrush="#54667A" 
+                    Height="37"
+                    materialDesign:HintAssist.Hint="Birthday"
+                    Padding="10" VerticalAlignment="Top"
+                    />
+        <ComboBox x:Name="cbbGioiTinh"
+                BorderBrush="#54667A"
+                Padding="10"
+                VerticalAlignment="Top"
+                materialDesign:HintAssist.Hint="Gender"
+                Margin="21,306,19,0" Height="40" SelectionChanged="txtGioiTinh_SelectionChanged">
+            <ComboBoxItem IsSelected="True" >Male</ComboBoxItem>
+            <ComboBoxItem>Female</ComboBoxItem>
+        </ComboBox>
         <Button
             Background="#00CF4D"
             BorderBrush="#00CF4D"
             materialDesign:ButtonAssist.CornerRadius="3"
             Style="{StaticResource MaterialDesignRaisedDarkButton}"
-            ToolTip="MaterialDesignRaisedDarkButton with Round Corners" Margin="15,273,274,-85" RenderTransformOrigin="0.5,0.5"  >
+            ToolTip="MaterialDesignRaisedDarkButton with Round Corners" Margin="15,273,274,-85" RenderTransformOrigin="0.5,0.5" Click="Button_Click_1"  >
             <Button.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -96,7 +94,7 @@
                 </TransformGroup>
             </Button.RenderTransform>
             <TextBlock FontWeight="Medium"
-                Text="ADD STUDENT" Width="181" Height="16">
+                Text="UPDATE " Width="181" Height="16" Margin="20, 0 ,0 ,0">
                 <TextBlock.Effect>
                     <DropShadowEffect
                       ShadowDepth="1"
@@ -133,19 +131,13 @@
                 </TextBlock.Effect>
             </TextBlock>
         </Button>
-        <TextBox
-            Background="white"
-            BorderBrush="#54667A"
-            Padding="10"
-            VerticalAlignment="Top"
-            materialDesign:HintAssist.Hint="Email"
-            Style="{StaticResource MaterialDesignOutlinedTextBox}" Margin="20,312,20,0" Height="31"/>
+
         <Button
             Background="#DF341E"
             BorderBrush="#DF341E"
             materialDesign:ButtonAssist.CornerRadius="3"
             Style="{StaticResource MaterialDesignRaisedDarkButton}"
-            ToolTip="MaterialDesignRaisedDarkButton with Round Corners" Margin="158,293,146,-67" RenderTransformOrigin="0.5,0.5"  >
+            ToolTip="MaterialDesignRaisedDarkButton with Round Corners" Margin="158,293,146,-67" RenderTransformOrigin="0.5,0.5" Click="Button_Click_2"  >
             <Button.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>

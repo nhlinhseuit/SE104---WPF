@@ -37,6 +37,20 @@
             VerticalAlignment="Top"
             materialDesign:HintAssist.Hint="Full name"
             Style="{StaticResource MaterialDesignOutlinedTextBox}" Margin="20,58,20,0" Height="40"/>
+        <TextBox x:Name="txtDiaChi"
+            Background="white"
+            BorderBrush="#54667A"
+            Padding="10"
+            VerticalAlignment="Top"
+            materialDesign:HintAssist.Hint="Address"
+            Style="{StaticResource MaterialDesignOutlinedTextBox}" Margin="20,115,20,0" Height="40"/>
+        <TextBox x:Name="txtEmail"
+            Background="white"
+            BorderBrush="#54667A"
+            Padding="10"
+            VerticalAlignment="Top"
+            materialDesign:HintAssist.Hint="Email"
+            Style="{StaticResource MaterialDesignOutlinedTextBox}" Margin="20,167,20,0" Height="42"/>
         <DatePicker x:Name="datePickerNgsinh" Margin="20,218,20,0" 
                     BorderBrush="#54667A" 
                     VerticalAlignment="Top" 
@@ -55,20 +69,7 @@
             <ComboBoxItem IsSelected="True" >Male</ComboBoxItem>
             <ComboBoxItem>Female</ComboBoxItem>
         </ComboBox>
-        <TextBox x:Name="txtDiaChi"
-            Background="white"
-            BorderBrush="#54667A"
-            Padding="10"
-            VerticalAlignment="Top"
-            materialDesign:HintAssist.Hint="Address"
-            Style="{StaticResource MaterialDesignOutlinedTextBox}" Margin="20,115,20,0" Height="40"/>
-        <TextBox x:Name="txtEmail"
-            Background="white"
-            BorderBrush="#54667A"
-            Padding="10"
-            VerticalAlignment="Top"
-            materialDesign:HintAssist.Hint="Email"
-            Style="{StaticResource MaterialDesignOutlinedTextBox}" Margin="20,167,20,0" Height="42"/>
+        
         <Button x:Name="btnAddStudent"
             Background="#00CF4D"
             BorderBrush="#00CF4D"

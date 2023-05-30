@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SE104___WPF.DBClass;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,6 +12,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using static SE104___WPF.CC_MStudent;
 
 namespace SE104___WPF
 {
@@ -19,6 +21,9 @@ namespace SE104___WPF
     /// </summary>
     public partial class ProfileStudent : Window
     {
+        private Student selectedStudent;
+        clsHOCSINH hs = new clsHOCSINH();
+
         private void CenterWindowOnScreen()
         {
             double screenWidth = System.Windows.SystemParameters.PrimaryScreenWidth;
@@ -28,10 +33,22 @@ namespace SE104___WPF
             this.Left = (screenWidth / 2) - (windowWidth / 2);
             this.Top = (screenHeight / 2) - (windowHeight / 2);
         }
-        public ProfileStudent()
+        public ProfileStudent(Student student)
         {
+            selectedStudent = student;
             InitializeComponent();
             CenterWindowOnScreen();
+            txtboxID.Text = student.ID;
+            txtboxName.Text = student.Fullname;
+            txtboxEmail.Text = student.Email;
+            txtboxAddress.Text = student.Address;
+
+            datePickerNgsinh.Text = Convert.ToString(student.Birthday);
+            if (student.Gender == "Male")
+                cbbGioiTinh.SelectedIndex = 1;
+            else
+                cbbGioiTinh.SelectedIndex = 0;
+
 
         }
 
@@ -41,5 +58,48 @@ namespace SE104___WPF
             this.Close();
         }
 
+        private void txtGioiTinh_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            hs.gioitinh = cbbGioiTinh.SelectedIndex;
+        }
+
+        private void capNhatHocSinh()
+        {
+            if (txtboxID.Text != "")
+                hs.hs_id = txtboxID.Text;
+            if (datePickerNgsinh.Text != "")
+                hs.ngsinh = Convert.ToDateTime(datePickerNgsinh.Text);
+            if (txtboxName.Text != "")
+                hs.tenhs = txtboxName.Text;
+            if (txtboxAddress.Text != "")
+                hs.diachi = txtboxAddress.Text;
+            if (txtboxEmail.Text != "")
+                hs.email = txtboxEmail.Text;
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            capNhatHocSinh();
+            hs.suaHocSinh(hs);
+        }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            MessageBoxResult result = MessageBox.Show("Are you sure want to delete?",
+            "Yes", MessageBoxButton.YesNo, MessageBoxImage.Question);
+
+            if (result == MessageBoxResult.Yes)
+            {
+                // Thực hiện xóa đối tượng
+                capNhatHocSinh();
+                hs.xoaHocSinh(hs);
+            }
+            else
+            {
+                return;
+            }
+            
+
+        }
     }
 }

@@ -66,8 +66,8 @@ namespace SE104___WPF
         private void btnAddStudent_Click(object sender, RoutedEventArgs e)
         {
             khoiTaoHocSinh();
-            if (hs.themHocSinh(hs) == 1)
-                this.Close();
+            hs.themHocSinh(hs);
+               
         }
     }
 }

@@ -37,10 +37,21 @@ namespace SE104___WPF
             CenterWindowOnScreen();
         }
 
+        public delegate void TaskCompletedCallback(bool flag);
+
+        private void FinishDuty(TaskCompletedCallback callback)
+        {
+            // Perform the necessary tasks
+
+            // Invoke the callback function and pass the modified flag back to UserControl1
+            bool modifiedFlag = true;  // Change the flag value to 1
+            callback?.Invoke(modifiedFlag);
+        }
+
         // btn Cancel
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            this.Close();
+            //this.Close();
         }
 
         private void khoiTaoHocSinh()
@@ -66,8 +77,8 @@ namespace SE104___WPF
         private void btnAddStudent_Click(object sender, RoutedEventArgs e)
         {
             khoiTaoHocSinh();
-            if (hs.themHocSinh(hs) == 1)
-                this.Close();
+            //if (hs.themHocSinh(hs) == 1)
+                //this.Close();
         }
     }
 }
