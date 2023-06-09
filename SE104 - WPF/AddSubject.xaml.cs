@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -34,9 +36,55 @@ namespace SE104___WPF
             CenterWindowOnScreen();
         }
 
+        string bang = "Data Source=LAPTOP-9Q9UCI39;Initial Catalog=SE104;Integrated Security=True";
+        SqlConnection sqlCon;
+        SqlCommand sqlCom;
+        SqlDataReader read;
+        SqlDataAdapter sqlDa;
+        DataTable dtbClass;
+        DataTable dtbStudent;
+
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            String txtSubject = txtboxSubject.Text;
+            string selectQuerySubjectname = "SELECT COUNT(*) FROM MONHOC WHERE TENMH = @TenMH";
+            string insertQuery = "INSERT INTO MONHOC (TENMH) VALUES (@TenMH)";
+
+            using (SqlConnection sqlCon = new SqlConnection(bang))
+            {
+                sqlCon.Open();
+                // Truy vấn SELECT để xem trong db đã có tên lớp đó chưa
+                using (SqlCommand selectCmd2 = new SqlCommand(selectQuerySubjectname, sqlCon))
+                {
+                    selectCmd2.Parameters.AddWithValue("@TenMH", txtSubject);
+                    int existingCount = (int)selectCmd2.ExecuteScalar();
+
+                    if (existingCount > 0)
+                    {
+                        // Tên lớp đã tồn tại, báo lỗi hoặc thực hiện xử lý phù hợp
+                        MessageBox.Show("Subject's already existed!!");
+                        return;
+                    }
+                    else
+                    {
+                        // Truy vấn INSERT để thêm giá trị mới vào bảng LOP
+                        using (SqlCommand insertCmd = new SqlCommand(insertQuery, sqlCon))
+                        {
+                            insertCmd.Parameters.AddWithValue("@TenMH", txtSubject);
+                            insertCmd.ExecuteNonQuery();
+                        }
+                    }
+
+
+                }
+                MessageBox.Show("Add subject successfully!");
+                this.Close();
+            }
         }
     }
 }

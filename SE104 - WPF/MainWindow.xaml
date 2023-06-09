@@ -15,7 +15,7 @@
          mc:Ignorable="d"
         Title="MainWindow" Height="600" Width="960"
         >
-    <Grid Background="WhiteSmoke" Margin="-3,0,3,0">
+    <Grid Background="#DEDEDE" Margin="-3,0,3,0">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="231"/>
             <ColumnDefinition/>

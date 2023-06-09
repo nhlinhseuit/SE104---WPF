@@ -46,17 +46,25 @@
 
             </Grid>
         </Border>
+        <DataGrid x:Name="dataGridViewReport"  
+                  Margin="36,170,29,111" 
+                  IsReadOnly="True"
+                  SelectionMode="Extended"  
+                  PreviewMouseDown="dataGridViewGrade_PreviewMouseDown" 
+                  SelectionChanged="dataGridViewClass_SelectionChanged">
+            <DataGrid.CellStyle>
+                <Style TargetType="DataGridCell">
+                    <Setter Property="HorizontalAlignment" Value="Center"/>
+                    <Setter Property="VerticalAlignment" Value="Center"/>
+                </Style>
+            </DataGrid.CellStyle>
+            <DataGrid.RowStyle>
+                <Style TargetType="DataGridRow">
+                    <Setter Property="Height" Value="50" />
+                </Style>
+            </DataGrid.RowStyle>
+        </DataGrid>
 
-        <Border 
-            Background="White" 
-            BorderBrush="white" 
-            BorderThickness="1,1,1,1" 
-            CornerRadius="10,10,10,10" 
-            HorizontalAlignment="Left" 
-            Width="664" Margin="34,168,0,57"
-            >
-            <Grid/>
-        </Border>
         <TextBlock Margin="112,86,554,488" 
             RenderTransformOrigin="-0.069,0.593" 
             FontSize="17"
@@ -72,7 +80,7 @@
                     <TranslateTransform/>
                 </TransformGroup>
             </TextBlock.RenderTransform></TextBlock>
-        <ComboBox HorizontalAlignment="Left" Margin="199,79,0,0" VerticalAlignment="Top" Width="421"/>
+        <ComboBox x:Name="TypeCombobox" HorizontalAlignment="Left" Margin="199,79,0,0" VerticalAlignment="Top" Width="421" SelectionChanged="TypeCombobox_SelectionChanged"/>
         <TextBlock Margin="110,116,533,458" 
             RenderTransformOrigin="-0.069,0.593" 
             FontSize="17"
@@ -103,8 +111,8 @@
                     <TranslateTransform/>
                 </TransformGroup>
             </TextBlock.RenderTransform></TextBlock>
-        <ComboBox HorizontalAlignment="Left" Margin="199,109,0,0" VerticalAlignment="Top" Width="144"/>
-        <ComboBox HorizontalAlignment="Left" Margin="476,109,0,0" VerticalAlignment="Top" Width="144"/>
+        <ComboBox x:Name="SubjectCombobox" HorizontalAlignment="Left" Margin="199,109,0,0" VerticalAlignment="Top" Width="144" SelectionChanged="SubjectCombobox_SelectionChanged"/>
+        <ComboBox x:Name="SemesterCombobox" HorizontalAlignment="Left" Margin="476,109,0,0" VerticalAlignment="Top" Width="144" SelectionChanged="SemesterCombobox_SelectionChanged"/>
     </Grid>
 </UserControl>
 

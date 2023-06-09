@@ -59,20 +59,8 @@ namespace SE104___WPF
 
         private void loadThongTin()
         {
-            // LOAD THÔNG TIN MẶC ĐỊNH TỪ DATAGRID
-            //string sql = "SELECT * FROM HOCSINH";
-            //using (sqlCon = new SqlConnection(bang))
-            //{
-            //    sqlCon.Open();
-            //    sqlDa = new SqlDataAdapter(sql, sqlCon);
-            //    dtbStudent = new DataTable();
-            //    sqlDa.Fill(dtbStudent);
-            //    dataGridViewStudent.ItemsSource = dtbStudent.DefaultView;
-            //    sqlCon.Close();
-            //}
 
-
-            // LOAD THÔNG TIN CUSTOM THEO CLASS STUDENT
+            //LOAD THÔNG TIN CUSTOM THEO CLASS STUDENT
             string sql = "SELECT HS_ID, TENHS, NGSINH, DIACHI, EMAIL, GIOITINH FROM HOCSINH";
             using (SqlConnection sqlCon = new SqlConnection(bang))
             {
@@ -229,57 +217,6 @@ namespace SE104___WPF
             {
                 Student student = (Student)dataGridViewStudent.SelectedItem;
                 selectedStudent = student;
-
-                //// Lấy thông tin của học sinh đã chọn từ danh sách students (List<Student>)
-                //int selectedStudentID = selectedStudent.ID;
-
-                //// Kiểm tra selectedStudentID trong danh sách students
-                //Student selectedStudent = students.FirstOrDefault(student => student.ID == selectedStudentID);
-                //string selectedID = selectedRow["ID"].ToString();
-                //string sql = "SELECT HS_ID, TENHS, NGSINH, DIACHI, EMAIL, GIOITINH FROM HOCSINH";
-
-                //// data for students
-                //using (SqlConnection sqlCon = new SqlConnection(bang))
-                //{
-                //    sqlCon.Open();
-                //    using (SqlCommand cmd = new SqlCommand(sql, sqlCon))
-                //    {
-                //        using (SqlDataReader reader = cmd.ExecuteReader())
-                //        {
-                //            List<Student> students = new List<Student>();
-                //            while (reader.Read())
-                //            {
-                //                Student student = new Student();
-                //                student.ID = reader["HS_ID"].ToString();
-                //                student.Fullname = reader["TENHS"].ToString();
-                //                student.Birthday = Convert.ToDateTime(reader["NGSINH"]);
-                //                student.Address = reader["DIACHI"].ToString();
-                //                student.Email = reader["EMAIL"].ToString();
-                //                //student.Gender = reader["GIOITINH"].ToString();
-                //                bool gioiTinhBit = Convert.ToBoolean(reader["GIOITINH"]);
-                //                student.Gender = gioiTinhBit ? "Male" : "Female";
-                //                students.Add(student);
-
-                //                foreach (Student student2 in students)
-                //                {
-                //                    if (student2.ID == selectedID)
-                //                    {
-                //                        selectedStudent = student2;
-                //                    }
-                //                }
-
-                //            }
-
-                //        }
-
-                //        // Gán danh sách students làm nguồn dữ liệu cho DataGrid
-                //    }
-
-
-                //    }
-                //}
-
-
             }
         }
 

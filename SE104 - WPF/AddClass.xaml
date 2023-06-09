@@ -13,7 +13,7 @@
          Background="{DynamicResource MaterialDesignPaper}"
          FontFamily="{DynamicResource MaterialDesignFont}"
         mc:Ignorable="d"
-        Title="AddClass" Height="214" Width="328">
+        Title="AddClass" Height="264" Width="328">
     <Grid Height="391" VerticalAlignment="Top">
         <TextBlock Margin="110,15,-18,344" 
             RenderTransformOrigin="-0.069,0.593" 
@@ -29,20 +29,35 @@
                     <TranslateTransform/>
                 </TransformGroup>
             </TextBlock.RenderTransform><Run Text="ADD CLASS"/></TextBlock>
-        <TextBox
+        <TextBox x:Name="txtboxClass"
             Background="white"
             BorderBrush="#54667A"
             Padding="10"
             VerticalAlignment="Top"
             materialDesign:HintAssist.Hint="Name of class"
-            Style="{StaticResource MaterialDesignOutlinedTextBox}" Margin="20,58,20,0" Height="31" Grid.ColumnSpan="4"/>
+            Style="{StaticResource MaterialDesignOutlinedTextBox}" Margin="20,110,20,0" Height="37"/>
+        <ComboBox x:Name="GradeCbb" 
+                  HorizontalAlignment="Center" 
+                  Margin="0,66,0,0" 
+                  VerticalAlignment="Top" 
+                  Width="249" 
+                  SelectionChanged="SemesterCombobox_SelectionChanged" RenderTransformOrigin="0.5,0.5">
+            <ComboBox.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-0.027"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </ComboBox.RenderTransform>
+        </ComboBox>
 
         <Button
             Background="#00CF4D"
             BorderBrush="#00CF4D"
             materialDesign:ButtonAssist.CornerRadius="3"
             Style="{StaticResource MaterialDesignRaisedDarkButton}"
-            ToolTip="MaterialDesignRaisedDarkButton with Round Corners" Margin="13,58,175,171" RenderTransformOrigin="0.5,0.5"  >
+            ToolTip="MaterialDesignRaisedDarkButton with Round Corners" Margin="13,167,175,192" RenderTransformOrigin="0.5,0.5" Click="Button_Click_1"  >
             <Button.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -68,7 +83,7 @@
             BorderBrush="#FF9722"
             materialDesign:ButtonAssist.CornerRadius="3"
             Style="{StaticResource MaterialDesignRaisedDarkButton}"
-            ToolTip="MaterialDesignRaisedDarkButton with Round Corners" Margin="169,55,19,169" RenderTransformOrigin="0.5,0.5" Click="Button_Click"  >
+            ToolTip="MaterialDesignRaisedDarkButton with Round Corners" Margin="169,167,19,192" RenderTransformOrigin="0.5,0.5" Click="Button_Click"  >
             <Button.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -89,6 +104,8 @@
                 </TextBlock.Effect>
             </TextBlock>
         </Button>
+        <Label Content="Name of grade" Margin="25,48,98,320"
+               Foreground="Gray"/>
 
     </Grid>
 </Window>

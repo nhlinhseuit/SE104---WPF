@@ -29,20 +29,20 @@
                     <TranslateTransform/>
                 </TransformGroup>
             </TextBlock.RenderTransform><Run Text="ADD SUBJECT"/></TextBlock>
-        <TextBox
+        <TextBox x:Name="txtboxSubject"
             Background="white"
             BorderBrush="#54667A"
             Padding="10"
             VerticalAlignment="Top"
             materialDesign:HintAssist.Hint="Name of subject"
-            Style="{StaticResource MaterialDesignOutlinedTextBox}" Margin="20,58,20,0" Height="31" Grid.ColumnSpan="4"/>
+            Style="{StaticResource MaterialDesignOutlinedTextBox}" Margin="20,58,20,0" Height="43"/>
 
         <Button
             Background="#00CF4D"
             BorderBrush="#00CF4D"
             materialDesign:ButtonAssist.CornerRadius="3"
             Style="{StaticResource MaterialDesignRaisedDarkButton}"
-            ToolTip="MaterialDesignRaisedDarkButton with Round Corners" Margin="13,58,175,171" RenderTransformOrigin="0.5,0.5"  >
+            ToolTip="MaterialDesignRaisedDarkButton with Round Corners" Margin="13,58,175,171" RenderTransformOrigin="0.5,0.5" Click="Button_Click_1"  >
             <Button.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>

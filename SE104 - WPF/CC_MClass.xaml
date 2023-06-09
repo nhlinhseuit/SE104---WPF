@@ -92,8 +92,9 @@
                     <TranslateTransform/>
                 </TransformGroup>
             </TextBlock.RenderTransform></TextBlock>
-        <ComboBox HorizontalAlignment="Left" Margin="138,89,0,0" VerticalAlignment="Top" Width="144"/>
-        <ComboBox HorizontalAlignment="Left" Margin="387,89,0,0" VerticalAlignment="Top" Width="144"/>
+        <TextBlock x:Name="txtTotal" Margin="629,99,37,487" materialDesign:BottomDashedLineAdorner.Brush="Black"></TextBlock>
+        <ComboBox x:Name="GradeCombobox" HorizontalAlignment="Left" Margin="138,89,0,0" VerticalAlignment="Top" Width="144" SelectionChanged="GradeCombobox_SelectionChanged"/>
+        <ComboBox x:Name="ClassCombobox" HorizontalAlignment="Left" Margin="387,89,0,0" VerticalAlignment="Top" Width="144" SelectionChanged="ClassCombobox_SelectionChanged"/>
         <Button
             Background="#00CF4D"
             BorderBrush="#00CF4D"
@@ -125,7 +126,7 @@
             BorderBrush="#DF341E"
             materialDesign:ButtonAssist.CornerRadius="3"
             Style="{StaticResource MaterialDesignRaisedDarkButton}"
-            ToolTip="MaterialDesignRaisedDarkButton with Round Corners" Margin="553,509,29,56" RenderTransformOrigin="0.5,0.5"   >
+            ToolTip="MaterialDesignRaisedDarkButton with Round Corners" Margin="549,362,29,-94" RenderTransformOrigin="0.5,0.5" Click="Button_Click_1"   >
             <Button.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -135,7 +136,7 @@
                 </TransformGroup>
             </Button.RenderTransform>
             <TextBlock FontWeight="Medium"
-                Text="DELETE STUDENT" Width="121" >
+                Text="REMOVE STUDENT" Width="121" >
                 <TextBlock.Effect>
                     <DropShadowEffect
                         ShadowDepth="1"
@@ -146,6 +147,22 @@
                 </TextBlock.Effect>
             </TextBlock>
         </Button>
-        <DataGrid x:Name="dataGridViewClass" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="32,141,33,137"/>
+        <DataGrid x:Name="dataGridViewClass"  
+                  Margin="32,141,33,137" 
+                  PreviewMouseDown="dataGridViewClass_PreviewMouseDown"
+                  IsReadOnly="True"
+                  SelectionMode="Extended" SelectionChanged="dataGridViewClass_SelectionChanged">
+            <DataGrid.CellStyle>
+                <Style TargetType="DataGridCell">
+                    <Setter Property="HorizontalAlignment" Value="Center"/>
+                    <Setter Property="VerticalAlignment" Value="Center"/>
+                </Style>
+            </DataGrid.CellStyle>
+            <DataGrid.RowStyle>
+                <Style TargetType="DataGridRow">
+                    <Setter Property="Height" Value="50" />
+                </Style>
+            </DataGrid.RowStyle>
+        </DataGrid>
     </Grid>
 </UserControl>

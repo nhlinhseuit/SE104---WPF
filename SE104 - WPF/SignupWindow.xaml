@@ -80,7 +80,7 @@
             </TextBox.Resources>
         </TextBox>-->
 
-            <TextBox
+            <TextBox x:Name="txtboxEmail"
                 Background="white"
                 BorderBrush="White"
                 Padding="10"
@@ -89,7 +89,7 @@
                 Style="{StaticResource MaterialDesignOutlinedTextBox}" Margin="572,170,30,0" Height="39"  Grid.ColumnSpan="2">
             </TextBox>
 
-            <TextBox
+            <TextBox x:Name="txtboxName"
             Background="white"
             BorderBrush="White"
             Padding="10"
@@ -99,7 +99,7 @@
             Style="{StaticResource MaterialDesignOutlinedTextBox}" Margin="572,220,30,0" Height="39"  Grid.ColumnSpan="2">
             </TextBox>
 
-            <TextBox
+            <TextBox x:Name="txtboxPassword"
                 Background="white"
                 BorderBrush="White"
                 Padding="10"
@@ -108,7 +108,7 @@
                 Style="{StaticResource MaterialDesignOutlinedTextBox}" Margin="572,271,30,0" Height="39"  Grid.ColumnSpan="2">
             </TextBox>
 
-            <TextBox
+            <TextBox x:Name="txtboxRePassword"
             Background="white"
             BorderBrush="White"
             Padding="10"
@@ -118,20 +118,13 @@
             Style="{StaticResource MaterialDesignOutlinedTextBox}" Margin="572,324,30,0" Height="39"  Grid.ColumnSpan="2">
             </TextBox>
 
-
-            <CheckBox Margin="574,387,184,145" Foreground="white"/>
-            <TextBlock Margin="597,393,101,156" Grid.ColumnSpan="2" Foreground="#686868" Text="Remember me"/>
-            <TextBlock Margin="775,393,-77,146" Foreground="Black" RenderTransformOrigin="0.819,0.562" FontWeight="Bold" Grid.ColumnSpan="2">
-            <Hyperlink NavigateUri="http://stackoverflow.com">Forgot password?</Hyperlink>
-            </TextBlock>
-
             <Button
                 Background="#71AADC"
                 BorderBrush="#71AADC"
                 materialDesign:ButtonAssist.CornerRadius="15"
                 IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
                 Style="{StaticResource MaterialDesignRaisedDarkButton}"
-                ToolTip="MaterialDesignRaisedDarkButton with Round Corners" Margin="602,431,60,98" RenderTransformOrigin="0.5,0.5" Grid.ColumnSpan="2">
+                ToolTip="MaterialDesignRaisedDarkButton with Round Corners" Margin="602,431,60,98" RenderTransformOrigin="0.5,0.5" Grid.ColumnSpan="2" Click="Button_Click_1">
                 <Button.RenderTransform>
                     <TransformGroup>
                         <ScaleTransform/>

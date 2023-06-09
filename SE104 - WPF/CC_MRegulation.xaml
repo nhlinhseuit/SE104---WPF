@@ -65,7 +65,7 @@
                     <TranslateTransform/>
                 </TransformGroup>
             </TextBlock.RenderTransform></TextBlock>
-        <TextBox
+        <TextBox x:Name="maxStudentCbb"
             Background="white"
             BorderBrush="#54667A"
             Padding="10"
@@ -76,7 +76,7 @@
             BorderBrush="#00BDDA"
             materialDesign:ButtonAssist.CornerRadius="3"
             Style="{StaticResource MaterialDesignRaisedDarkButton}"
-            ToolTip="MaterialDesignRaisedDarkButton with Round Corners" Margin="646,119,29,389" RenderTransformOrigin="1.016,2.003"  Grid.Row="1" >
+            ToolTip="MaterialDesignRaisedDarkButton with Round Corners" Margin="646,119,29,389" RenderTransformOrigin="1.016,2.003"  Grid.Row="1" Click="Button_Click_5" >
             <Button.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -112,7 +112,7 @@
                     <TranslateTransform/>
                 </TransformGroup>
             </TextBlock.RenderTransform></TextBlock>
-        <TextBox
+        <TextBox x:Name="maxAgeCbb"
             Background="white"
             BorderBrush="#54667A"
             Padding="10"
@@ -123,7 +123,7 @@
             BorderBrush="#00BDDA"
             materialDesign:ButtonAssist.CornerRadius="3"
             Style="{StaticResource MaterialDesignRaisedDarkButton}"
-            ToolTip="MaterialDesignRaisedDarkButton with Round Corners" Margin="646,60,29,448" RenderTransformOrigin="1.016,2.003"  Grid.Row="1" >
+            ToolTip="MaterialDesignRaisedDarkButton with Round Corners" Margin="646,60,29,448" RenderTransformOrigin="1.016,2.003"  Grid.Row="1" Click="Button_Click_4" >
             <Button.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -150,7 +150,7 @@
             BorderBrush="#00BDDA"
             materialDesign:ButtonAssist.CornerRadius="3"
             Style="{StaticResource MaterialDesignRaisedDarkButton}"
-            ToolTip="MaterialDesignRaisedDarkButton with Round Corners" Margin="646,176,29,332" RenderTransformOrigin="1.016,2.003"  Grid.Row="1" >
+            ToolTip="MaterialDesignRaisedDarkButton with Round Corners" Margin="646,176,29,332" RenderTransformOrigin="1.016,2.003"  Grid.Row="1" Click="Button_Click_6" >
             <Button.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -177,7 +177,7 @@
             BorderBrush="#00BDDA"
             materialDesign:ButtonAssist.CornerRadius="3"
             Style="{StaticResource MaterialDesignRaisedDarkButton}"
-            ToolTip="MaterialDesignRaisedDarkButton with Round Corners" Margin="646,235,29,273" RenderTransformOrigin="1.016,2.003" Grid.Row="1" >
+            ToolTip="MaterialDesignRaisedDarkButton with Round Corners" Margin="646,235,29,273" RenderTransformOrigin="1.016,2.003" Grid.Row="1" Click="Button_Click_7" >
             <Button.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -267,7 +267,7 @@
                     <TranslateTransform/>
                 </TransformGroup>
             </TextBlock.RenderTransform></TextBlock>
-        <TextBox
+        <TextBox x:Name="gradePassCbb"
             Background="white"
             BorderBrush="#54667A"
             Padding="10"
@@ -287,7 +287,7 @@
                     <TranslateTransform/>
                 </TransformGroup>
             </TextBlock.RenderTransform></TextBlock>
-        <TextBox
+        <TextBox x:Name="minAgeCbb"
             Background="white"
             BorderBrush="#54667A"
             Padding="10"
@@ -321,7 +321,8 @@
                     <TranslateTransform/>
                 </TransformGroup>
             </TextBlock.RenderTransform></TextBlock>
-        <TextBox HorizontalAlignment="Left" Margin="232,349,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="318" Grid.Row="1" />
+        <TextBox IsReadOnly="True" x:Name="classCbb" HorizontalAlignment="Left" Margin="232,349,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="318" Grid.Row="1" />
+        <TextBox IsReadOnly="True" x:Name="subjectCbb" HorizontalAlignment="Left" Margin="232,403,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="318" Grid.Row="1" />
         <Button
             Background="#00CF4D"
             BorderBrush="#00CF4D"
@@ -376,7 +377,6 @@
                 </Image.RenderTransform>
             </Image>
         </Button>
-        <TextBox HorizontalAlignment="Left" Margin="232,403,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="318" Grid.Row="1" />
 
 
     </Grid>

@@ -12,6 +12,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using static SE104___WPF.DBClass.clsHOCSINH;
 using static SE104___WPF.CC_MStudent;
 
 namespace SE104___WPF
@@ -75,12 +76,15 @@ namespace SE104___WPF
                 hs.diachi = txtboxAddress.Text;
             if (txtboxEmail.Text != "")
                 hs.email = txtboxEmail.Text;
+
+            
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
             capNhatHocSinh();
             hs.suaHocSinh(hs);
+            this.Close();
         }
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
@@ -93,6 +97,7 @@ namespace SE104___WPF
                 // Thực hiện xóa đối tượng
                 capNhatHocSinh();
                 hs.xoaHocSinh(hs);
+                this.Close();
             }
             else
             {

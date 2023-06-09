@@ -14,7 +14,7 @@
          Background="{DynamicResource MaterialDesignPaper}"
          FontFamily="{DynamicResource MaterialDesignFont}"
         mc:Ignorable="d"
-        Title="UpdateGrade" Height="437" Width="429">
+        Title="UpdateGrade" Height="500" Width="429">
     <Grid>
         <TextBlock Margin="166,15,-74,344" 
             RenderTransformOrigin="-0.069,0.593" 
@@ -31,57 +31,54 @@
                     <TranslateTransform/>
                 </TransformGroup>
             </TextBlock.RenderTransform></TextBlock>
-        <TextBox
+        <TextBox x:Name="txtHK"
+            IsReadOnly="True"
             Background="white"
             BorderBrush="#54667A"
             Padding="10"
             VerticalAlignment="Top"
             materialDesign:HintAssist.Hint="Semester"
-            Style="{StaticResource MaterialDesignOutlinedTextBox}" Margin="20,58,20,0" Height="31" Grid.ColumnSpan="4" />
-        <TextBox
+            Style="{StaticResource MaterialDesignOutlinedTextBox}" Margin="20,58,20,0" 
+                 Height="45" Grid.ColumnSpan="4" />
+        <TextBox x:Name="txtHS"
+            IsReadOnly="True"
             Background="white"
             BorderBrush="#54667A"
             Padding="10"
             VerticalAlignment="Top"
             materialDesign:HintAssist.Hint="ID Student"
-            Style="{StaticResource MaterialDesignOutlinedTextBox}" Margin="20,108,20,0" Height="32"/>
-        <Grid>
-
-            <TextBox
+            Style="{StaticResource MaterialDesignOutlinedTextBox}" Margin="20,111,20,0" Height="45"/>
+        <TextBox x:Name="txtMH"
+            IsReadOnly="True"
             Background="white"
             BorderBrush="#54667A"
             Padding="10"
             VerticalAlignment="Top"
             materialDesign:HintAssist.Hint="Subject"
-            Style="{StaticResource MaterialDesignOutlinedTextBox}" Margin="20,156,20,0" Height="32" ></TextBox>
+            Style="{StaticResource MaterialDesignOutlinedTextBox}" Margin="20,162,20,0" Height="45"/>
 
-            <Image
-            Margin="354,166,12,240"
-             Source="C:\dev\SE104 - WPF\SE104 - WPF\img\calendar.png" RenderTransformOrigin="0.5,0.5" >
-                <Image.RenderTransform>
-                    <TransformGroup>
-                        <ScaleTransform ScaleX="-0.85" ScaleY="-0.85"/>
-                        <SkewTransform/>
-                        <RotateTransform Angle="-180"/>
-                        <TranslateTransform/>
-                    </TransformGroup>
-                </Image.RenderTransform>
-            </Image>
-        </Grid>
-        <TextBox
+        <TextBox x:Name="txt15"
             Background="white"
             BorderBrush="#54667A"
             Padding="10"
             VerticalAlignment="Top"
             materialDesign:HintAssist.Hint="15' Test"
-            Style="{StaticResource MaterialDesignOutlinedTextBox}" Margin="20,208,20,0" Height="32"/>
-        <TextBox
+            Style="{StaticResource MaterialDesignOutlinedTextBox}" Margin="20,217,20,0" Height="45"/>
+        <TextBox x:Name="txt45"
             Background="white"
             BorderBrush="#54667A"
             Padding="10"
             VerticalAlignment="Top"
             materialDesign:HintAssist.Hint="45' Test"
-            Style="{StaticResource MaterialDesignOutlinedTextBox}" Margin="20,259,20,0" Height="31"/>
+            Style="{StaticResource MaterialDesignOutlinedTextBox}" Margin="20,270,20,0" Height="45"/>
+        <TextBox x:Name="txtCK"
+            Background="white"
+            BorderBrush="#54667A"
+            Padding="10"
+            VerticalAlignment="Top"
+            materialDesign:HintAssist.Hint="Final Test"
+            Style="{StaticResource MaterialDesignOutlinedTextBox}" Margin="20,326,20,0" Height="45"/>
+
         <Button
             Background="#FF9722"
             BorderBrush="#FF9722"
@@ -108,19 +105,12 @@
                 </TextBlock.Effect>
             </TextBlock>
         </Button>
-        <TextBox
-            Background="white"
-            BorderBrush="#54667A"
-            Padding="10"
-            VerticalAlignment="Top"
-            materialDesign:HintAssist.Hint="Final Test"
-            Style="{StaticResource MaterialDesignOutlinedTextBox}" Margin="20,312,20,0" Height="31"/>
         <Button
             Background="#00BDDA"
             BorderBrush="#00BDDA"
             materialDesign:ButtonAssist.CornerRadius="3"
             Style="{StaticResource MaterialDesignRaisedDarkButton}"
-            ToolTip="MaterialDesignRaisedDarkButton with Round Corners" Margin="57,264,247,-68" RenderTransformOrigin="0.5,0.5" Click="Button_Click"  >
+            ToolTip="MaterialDesignRaisedDarkButton with Round Corners" Margin="57,264,247,-68" RenderTransformOrigin="0.5,0.5" Click="Button_Click_1"  >
             <Button.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>

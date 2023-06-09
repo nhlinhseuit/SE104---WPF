@@ -79,7 +79,7 @@
             </TextBox.Resources>
         </TextBox>-->
 
-        <TextBox
+        <TextBox x:Name="txtboxUsername"
                 Background="white"
                 BorderBrush="White"
                 Padding="10"
@@ -88,7 +88,7 @@
                 Style="{StaticResource MaterialDesignOutlinedTextBox}" Margin="572,202,30,0" Height="39" Grid.ColumnSpan="2">
         </TextBox>
 
-        <TextBox
+        <TextBox x:Name="txtboxPassword"
             Background="white"
             BorderBrush="White"
             Padding="10"
@@ -98,7 +98,7 @@
             Style="{StaticResource MaterialDesignOutlinedTextBox}" Margin="572,0,30,0" Height="39" Grid.ColumnSpan="2">
         </TextBox>
 
-        <CheckBox Margin="572,312,186,220" Foreground="white"/>
+        <CheckBox x:Name="rememberCheckbox" Margin="572,312,186,220" Foreground="white"/>
         <TextBlock Margin="602,320,96,229" Grid.ColumnSpan="2" Foreground="#686868" Text="Remember me"/>
         <TextBlock Margin="777,320,-79,220" Foreground="Black" RenderTransformOrigin="0.819,0.562" FontWeight="Bold" Grid.ColumnSpan="2">
             <Hyperlink NavigateUri="http://stackoverflow.com">Forgot password?</Hyperlink>

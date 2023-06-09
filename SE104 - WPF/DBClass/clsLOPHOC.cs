@@ -9,7 +9,7 @@ using System.Windows;
 
 namespace SE104___WPF.DBClass
 {
-    class clsHOCSINH
+    class clsLOPHOC
     {
         public string hs_id { get; set; }
         public string tenhs { get; set; }
@@ -17,11 +17,6 @@ namespace SE104___WPF.DBClass
         public string diachi { get; set; }
         public string email { get; set; }
         public int gioitinh { get; set; }
-
-        public String selectedID { get; set; }
-        public String selectedSemester { get; set; }
-        public String selectedSubject { get; set; }
-
 
         DBConnect dBConnect = new DBConnect();
         string bang = "Data Source=LAPTOP-9Q9UCI39;Initial Catalog=SE104;Integrated Security=True";
@@ -31,6 +26,7 @@ namespace SE104___WPF.DBClass
         SqlDataAdapter sqlDa;
         DataTable dtbStudent;
 
+        static int countID = 6;
 
 
         public int themHocSinh(clsHOCSINH hs)
@@ -39,7 +35,7 @@ namespace SE104___WPF.DBClass
             {
                 SqlConnection sqlConString = new SqlConnection(bang);
                 sqlConString.Open();
-                SqlCommand sql = new SqlCommand("INSERT INTO HOCSINH (TENHS, NGSINH, DIACHI, EMAIL, GIOITINH) VALUES(N'" + hs.tenhs + "', '" + hs.ngsinh + "', '" + hs.diachi + "', '" + hs.email + "','" + hs.gioitinh + "' )", sqlConString);
+                SqlCommand sql = new SqlCommand("INSERT INTO HOCSINH VALUES('" + countID++ + "', N'" + hs.tenhs + "', '" + hs.ngsinh + "', '" + hs.diachi + "', '" + hs.email + "','" + hs.gioitinh + "' )", sqlConString);
                 sql.ExecuteNonQuery();
                 sqlConString.Close();
                 MessageBox.Show("Add successfully");
@@ -95,48 +91,5 @@ namespace SE104___WPF.DBClass
                 return 0;
             }
         }
-
-        public int xoaHocSinhKhoiLop(clsHOCSINH hs)
-        {
-            try
-            {
-                SqlConnection sqlConString = new SqlConnection(bang);
-                sqlConString.Open();
-                SqlCommand sql = new SqlCommand("UPDATE HOCSINH SET LOP_ID = NULL WHERE HS_ID = '" + hs.hs_id + "'", sqlConString);
-                sql.ExecuteNonQuery();
-                sqlConString.Close();
-                MessageBox.Show("Delete successfully");
-                return 1;
-            }
-            catch
-            {
-                MessageBox.Show("Delete failed");
-                return 0;
-            }
-        }
-
-        public int xoaBangDiem(clsHOCSINH hs)
-        {
-            try
-            {
-                SqlConnection sqlConString = new SqlConnection(bang);
-                sqlConString.Open();
-                SqlCommand sql = new SqlCommand("DELETE FROM BANGDIEM " +
-             "WHERE HK_ID IN (SELECT HK_ID FROM HOCKY WHERE TENHK = '" + selectedSemester + "') " +
-             "AND HS_ID = '" + selectedID + "' " +
-             "AND MH_ID IN (SELECT MH_ID FROM MONHOC WHERE TENMH = '" + selectedSubject + "')", sqlConString);
-                sql.ExecuteNonQuery();
-                sqlConString.Close();
-                MessageBox.Show("Delete successfully");
-                return 1;
-            }
-            catch
-            {
-                MessageBox.Show("Delete failed");
-                return 0;
-            }
-        }
     }
-
-    
 }

@@ -46,62 +46,12 @@
 
             </Grid>
         </Border>
-        <Border 
-            Background="White" 
-            BorderBrush="white" 
-            BorderThickness="1,1,1,1" 
-            CornerRadius="10, 10, 10,10" 
-            HorizontalAlignment="Left" 
-            Width="377" Margin="34,162,0,403"
-            >
-            <Grid Margin="0,0,0,-5">
-                <materialDesign:PackIcon Foreground="#54667A" Kind="Magnify" Margin="17,6,0,0" Height="23" Width="31" />
-
-                <TextBlock Margin="62,8,67,4" 
-                    RenderTransformOrigin="-0.069,0.593" 
-                    FontSize="17"
-                    Foreground="#54667A"
-                           Text="Search for student"
-                           >
-                    <TextBlock.RenderTransform>
-                        <TransformGroup>
-                            <ScaleTransform/>
-                            <SkewTransform/>
-                            <RotateTransform Angle="0.024"/>
-                            <TranslateTransform/>
-                        </TransformGroup>
-                    </TextBlock.RenderTransform></TextBlock>
-
-
-            </Grid>
-
-
-
-        </Border>
-
-        <Button
-                Background="#0089E2"
-                BorderBrush="#0089E2"
-                materialDesign:ButtonAssist.CornerRadius="3"
-                Style="{StaticResource MaterialDesignRaisedDarkButton}"
-                ToolTip="MaterialDesignRaisedDarkButton with Round Corners" Margin="426,163,208,405" RenderTransformOrigin="0.5,0.5"  >
-            <Button.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform/>
-                    <RotateTransform Angle="0.236"/>
-                    <TranslateTransform/>
-                </TransformGroup>
-            </Button.RenderTransform>
-            <TextBlock FontWeight="Medium"
-                    Text="Search" ></TextBlock>
-        </Button>
         <Button
             Background="#00CF4D"
             BorderBrush="#00CF4D"
             materialDesign:ButtonAssist.CornerRadius="3"
             Style="{StaticResource MaterialDesignRaisedDarkButton}"
-            ToolTip="MaterialDesignRaisedDarkButton with Round Corners" Margin="526,163,149,405" RenderTransformOrigin="1.016,2.003" Click="Button_Click" >
+            ToolTip="MaterialDesignRaisedDarkButton with Round Corners" Margin="349,522,278,46" RenderTransformOrigin="1.016,2.003" Click="Button_Click" >
             <Button.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -128,7 +78,7 @@
             BorderBrush="#00BDDA"
             materialDesign:ButtonAssist.CornerRadius="3"
             Style="{StaticResource MaterialDesignRaisedDarkButton}"
-            ToolTip="MaterialDesignRaisedDarkButton with Round Corners" Margin="585,163,90,405" RenderTransformOrigin="1.016,2.003" Click="Button_Click_1" >
+            ToolTip="MaterialDesignRaisedDarkButton with Round Corners" Margin="469,522,158,46" RenderTransformOrigin="1.016,2.003" Click="Button_Click_1" >
             <Button.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -151,22 +101,26 @@
             </Image>
         </Button>
 
-        <Border 
-            Background="White" 
-            BorderBrush="white" 
-            BorderThickness="1,1,1,1" 
-            CornerRadius="10,10,10,10" 
-            HorizontalAlignment="Left" 
-            Width="664" Margin="34,225,0,0"
-            >
-            <Grid/>
-        </Border>
+        <DataGrid x:Name="dataGridViewGrade"  
+                  Margin="36,170,29,111" 
+                  IsReadOnly="True"
+                  SelectionMode="Extended"  
+                  PreviewMouseDown="dataGridViewGrade_PreviewMouseDown" SelectionChanged="dataGridViewClass_SelectionChanged">
+            <DataGrid.CellStyle>
+                <Style TargetType="DataGridCell">
+                    <Setter Property="HorizontalAlignment" Value="Center"/>
+                    <Setter Property="VerticalAlignment" Value="Center"/>
+                </Style>
+            </DataGrid.CellStyle>
+            <DataGrid.RowStyle>
+                <Style TargetType="DataGridRow">
+                    <Setter Property="Height" Value="50" />
+                </Style>
+            </DataGrid.RowStyle>
+        </DataGrid>
 
-        <Grid Margin="0,202,0,-75">
 
 
-
-        </Grid>
         <TextBlock Margin="133,86,533,488" 
             RenderTransformOrigin="-0.069,0.593" 
             FontSize="17"
@@ -197,8 +151,8 @@
                     <TranslateTransform/>
                 </TransformGroup>
             </TextBlock.RenderTransform></TextBlock>
-        <ComboBox HorizontalAlignment="Left" Margin="199,79,0,0" VerticalAlignment="Top" Width="144"/>
-        <ComboBox HorizontalAlignment="Left" Margin="460,79,0,0" VerticalAlignment="Top" Width="144"/>
+        <ComboBox x:Name="GradeCombobox" HorizontalAlignment="Left" Margin="199,79,0,0" VerticalAlignment="Top" Width="144" SelectionChanged="GradeCombobox_SelectionChanged"/>
+        <ComboBox x:Name="ClassCombobox" HorizontalAlignment="Left" Margin="473,79,0,0" VerticalAlignment="Top" Width="144" SelectionChanged="ClassCombobox_SelectionChanged"/>
         <TextBlock Margin="110,116,533,458" 
             RenderTransformOrigin="-0.069,0.593" 
             FontSize="17"
@@ -229,14 +183,19 @@
                     <TranslateTransform/>
                 </TransformGroup>
             </TextBlock.RenderTransform></TextBlock>
-        <ComboBox HorizontalAlignment="Left" Margin="199,109,0,0" VerticalAlignment="Top" Width="144"/>
-        <ComboBox HorizontalAlignment="Left" Margin="459,109,0,0" VerticalAlignment="Top" Width="144"/>
+        <ComboBox x:Name="SemesterCombobox" 
+                  HorizontalAlignment="Left" 
+                  Margin="199,109,0,0" 
+                  VerticalAlignment="Top" 
+                  Width="144" 
+                  SelectionChanged="SemesterCombobox_SelectionChanged"/>
+        <ComboBox x:Name="SubjectCombobox" HorizontalAlignment="Left" Margin="472,109,0,0" VerticalAlignment="Top" Width="144" SelectionChanged="SubjectCombobox_SelectionChanged"/>
         <Button
             Background="#DF341E"
             BorderBrush="#DF341E"
             materialDesign:ButtonAssist.CornerRadius="3"
             Style="{StaticResource MaterialDesignRaisedDarkButton}"
-            ToolTip="MaterialDesignRaisedDarkButton with Round Corners" Margin="645,163,30,405" RenderTransformOrigin="1.016,2.003" >
+            ToolTip="MaterialDesignRaisedDarkButton with Round Corners" Margin="584,522,43,46" RenderTransformOrigin="1.016,2.003" Click="Button_Click_2" >
             <Button.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
