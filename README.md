@@ -3,6 +3,7 @@
 <h1>Chào các bạn,</h1>
 Đây là sẽ là hướng dẫn cài đặt phần mềm Student Management - đồ án của Nhóm 7 chúng mình cho môn Nhập môn Công nghệ phần mềm SE104.N21.PMCL.
 
+
 <strong>Bước 1.</strong>. Clone code theo đường link https://github.com/nhlinhseuit/SE104---WPF.git về 1 thư mục trong máy
 ![image](https://github.com/nhlinhseuit/SE104---WPF/assets/93470801/7ebdd47b-6e47-4abe-b9ec-fe5bd5fab7c9)
 
