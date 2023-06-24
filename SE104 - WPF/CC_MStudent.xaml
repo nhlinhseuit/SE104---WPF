@@ -158,7 +158,17 @@
                       IsReadOnly="True" SelectionChanged="dataGridViewStudent_SelectionChanged"
                       SelectionMode="Extended"
                        PreviewMouseDown="dataGridViewStudent_PreviewMouseDown"
+                      
                       >
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="ID:" Binding="{Binding ID}" Width="60" />
+                    <DataGridTextColumn Header="Fullname:" Binding="{Binding Fullname}" Width="150" />
+                    <DataGridTextColumn Header="Birthday:" Binding="{Binding Birthday, StringFormat=\{0:MM/dd/yyyy\}}" Width="100" />
+                    <DataGridTextColumn Header="Address:" Binding="{Binding Address}" Width="100"/>
+                    <DataGridTextColumn Header="Email:" Binding="{Binding Email}" Width="100"/>
+                    <DataGridTextColumn Header="Gender:" Binding="{Binding Gender}" Width="100"/>
+
+                </DataGrid.Columns>
                 <DataGrid.CellStyle>
                     <Style TargetType="DataGridCell">
                         <Setter Property="HorizontalAlignment" Value="Center"/>

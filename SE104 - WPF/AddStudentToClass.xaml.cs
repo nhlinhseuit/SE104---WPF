@@ -73,6 +73,21 @@ namespace SE104___WPF
 
                         // Gán danh sách students làm nguồn dữ liệu cho DataGrid
                         studentNotHaveClassDatagrid.ItemsSource = students;
+
+                        studentNotHaveClassDatagrid.AutoGenerateColumns = false;
+
+                        // Xác định tên các cột không mong muốn
+                        string[] unwantedColumns = { "ID1", "Fullname1", "Birthday1", "Address1", "Email1", "Gender1" };
+
+                        // Xóa các cột không mong muốn khỏi DataGrid
+                        foreach (var columnName in unwantedColumns)
+                        {
+                            var unwantedColumn = studentNotHaveClassDatagrid.Columns.FirstOrDefault(c => c.Header.ToString() == columnName);
+                            if (unwantedColumn != null)
+                            {
+                                studentNotHaveClassDatagrid.Columns.Remove(unwantedColumn);
+                            }
+                        }
                     }
                 }
             }

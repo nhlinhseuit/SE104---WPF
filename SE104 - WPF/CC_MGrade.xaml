@@ -106,6 +106,15 @@
                   IsReadOnly="True"
                   SelectionMode="Extended"  
                   PreviewMouseDown="dataGridViewGrade_PreviewMouseDown" SelectionChanged="dataGridViewClass_SelectionChanged">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID:" Binding="{Binding ID}" Width="60"/>
+                <DataGridTextColumn Header="Fullname:" Binding="{Binding Fullname}" Width="150"/>
+                <DataGridTextColumn Header="Test15'" Binding="{Binding DIEM15}"/>
+                <DataGridTextColumn Header="Test45'" Binding="{Binding DIEM45}"/>
+                <DataGridTextColumn Header="FinalTest:" Binding="{Binding DIEMCK}"/>
+                <DataGridTextColumn Header="GPA:" Binding="{Binding DIEMTB}"/>
+
+            </DataGrid.Columns>
             <DataGrid.CellStyle>
                 <Style TargetType="DataGridCell">
                     <Setter Property="HorizontalAlignment" Value="Center"/>

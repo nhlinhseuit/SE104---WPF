@@ -35,7 +35,7 @@ namespace SE104___WPF
         SqlDataAdapter sqlDa;
         DataTable dtbClass;
         DataTable dtbStudent;
-
+         
         private int getNumberOfClass()
         {
             int count;
@@ -319,6 +319,11 @@ namespace SE104___WPF
             }
             else
             {
+                if (SemesterCombobox.SelectedItem != null)
+                {
+                    SubjectCombobox.SelectedItem = null;
+                    SubjectCombobox.Items.Clear();
+                }
                 SubjectCombobox.IsEnabled = true;
                 using (sqlCon = new SqlConnection(bang))
                 {
@@ -350,18 +355,18 @@ namespace SE104___WPF
 
                 }
                 using (sqlCon = new SqlConnection(bang))
-            {
-                sqlCon.Open();
-                sqlCom = new SqlCommand("SELECT TENHK FROM HOCKY", sqlCon);
-                using (SqlDataReader reader = sqlCom.ExecuteReader())
                 {
-                    while (reader.Read())
+                    sqlCon.Open();
+                    sqlCom = new SqlCommand("SELECT TENHK FROM HOCKY", sqlCon);
+                    using (SqlDataReader reader = sqlCom.ExecuteReader())
                     {
-                        string hockyValue = reader["TENHK"].ToString();
-                        SemesterCombobox.Items.Add(hockyValue);
+                        while (reader.Read())
+                        {
+                            string hockyValue = reader["TENHK"].ToString();
+                            SemesterCombobox.Items.Add(hockyValue);
+                        }
                     }
                 }
-            }
             }
         }
 
@@ -419,10 +424,19 @@ namespace SE104___WPF
 
         private void SemesterCombobox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (SubjectCombobox.IsReadOnly == true)
-                loadThongTinTKHocKy();
-            else
+            if (SubjectCombobox.IsEnabled == true)
+            {
+                if (SemesterCombobox.SelectedItem == null)
+                    return;
                 loadThongTinTKMon();
+            }
+            else
+            {
+                if (SemesterCombobox.SelectedItem == null)
+                    return;
+                loadThongTinTKHocKy();
+            }   
+
         }
     }
 }

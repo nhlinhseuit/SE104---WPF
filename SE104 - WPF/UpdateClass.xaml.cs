@@ -119,21 +119,42 @@ namespace SE104___WPF
             string classId = ClassCbb.SelectedItem.ToString();
             if (className == null || classId == null)
             {
-                MessageBox.Show("EROR!");
+                MessageBox.Show("EROR: Name of class or ID of class is null!");
             }
             else
             {
-                SqlConnection sqlConString = new SqlConnection(bang);
-                sqlConString.Open();
-                string sql2 = "UPDATE LOP SET TENLOP = @Tenlop " +
-                    "WHERE LOP_ID = @LopID";
-                SqlCommand sql = new SqlCommand(sql2, sqlConString);
-                sql.Parameters.AddWithValue("@Tenlop", className);
-                sql.Parameters.AddWithValue("@LopID", classId);
-                sql.ExecuteNonQuery();
-                sqlConString.Close();
-                MessageBox.Show("Update class name successfully!");
-                this.Close();
+                using (SqlConnection sqlCon = new SqlConnection(bang))
+                {
+                    sqlCon.Open();
+                    string selectQueryClassname = "SELECT COUNT(*) FROM LOP WHERE TENLOP = @Tenlop";
+                    using (SqlCommand selectCmd2 = new SqlCommand(selectQueryClassname, sqlCon))
+                    {
+                        selectCmd2.Parameters.AddWithValue("@Tenlop", className);
+                        int existingCount = (int)selectCmd2.ExecuteScalar();
+
+                        if (existingCount > 0)
+                        {
+                            // Tên lớp đã tồn tại, báo lỗi hoặc thực hiện xử lý phù hợp
+                            MessageBox.Show("Class's already existed!!");
+                            return;
+                        }
+                        else
+                        {
+                            string sql2 = "UPDATE LOP SET TENLOP = @Tenlop " +
+                                            "WHERE LOP_ID = @LopID";
+                            SqlCommand sql = new SqlCommand(sql2, sqlCon);
+                            sql.Parameters.AddWithValue("@Tenlop", className);
+                            sql.Parameters.AddWithValue("@LopID", classId);
+                            sql.ExecuteNonQuery();
+                            sqlCon.Close();
+                            MessageBox.Show("Update class name successfully!");
+                        }
+
+                        // Truy vấn INSERT để thêm giá trị mới vào bảng LOP
+                        this.Close();
+
+                }
+                }
             }
             
         }

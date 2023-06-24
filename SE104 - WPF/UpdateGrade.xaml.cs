@@ -76,10 +76,11 @@ namespace SE104___WPF
             sqlConString.Open();
 
 
-            string sql2 = "UPDATE BANGDIEM SET DIEM15 = @Diem15, DIEM45 = @Diem45, DIEMHK = @DiemCK " +
-                "WHERE HS_ID = @HSID " +
-                "AND HK_ID IN (SELECT HK_ID FROM HOCKY WHERE TENHK = @HKID) " +
-                "AND MH_ID IN (SELECT MH_ID FROM MONHOC WHERE TENMH = @MHID)";
+            string sql2 = "UPDATE BANGDIEM SET DIEM15 = @Diem15, DIEM45 = @Diem45, DIEMHK = @DiemCK, DIEMTB = ROUND((@Diem15 + @Diem45*2 + @DiemCK*3)/6, 2) " +
+    "WHERE HS_ID = @HSID " +
+    "AND HK_ID IN (SELECT HK_ID FROM HOCKY WHERE TENHK = @HKID) " +
+    "AND MH_ID IN (SELECT MH_ID FROM MONHOC WHERE TENMH = @MHID)";
+
 
             SqlCommand sql = new SqlCommand(sql2, sqlConString);
             sql.Parameters.AddWithValue("@Diem15", txtDiem15);

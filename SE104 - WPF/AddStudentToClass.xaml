@@ -89,10 +89,19 @@
                 Text="Search" />
         </Button>
         <DataGrid x:Name="studentNotHaveClassDatagrid" 
-                  d:ItemsSource="{d:SampleData ItemCount=5}" Margin="81,192,69,102" 
+                  d:ItemsSource="{d:SampleData ItemCount=0}" Margin="81,192,69,102" 
                   PreviewMouseDown="studentNotHaveClassDatagrid_PreviewMouseDown"
                   IsReadOnly="True"
                   SelectionMode="Extended" SelectionChanged="studentNotHaveClassDatagrid_SelectionChanged">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID:" Binding="{Binding ID}" />
+                <DataGridTextColumn Header="Fullname:" Binding="{Binding Fullname}" />
+                <DataGridTextColumn Header="Birthday:" Binding="{Binding Birthday, StringFormat=\{0:MM/dd/yyyy\}}" />
+                <DataGridTextColumn Header="Address:" Binding="{Binding Address}" />
+                <DataGridTextColumn Header="Email:" Binding="{Binding Email}" />
+                <DataGridTextColumn Header="Gender:" Binding="{Binding Gender}" />
+
+            </DataGrid.Columns>
             <DataGrid.CellStyle>
                 <Style TargetType="DataGridCell">
                     <Setter Property="HorizontalAlignment" Value="Center"/>
@@ -104,6 +113,7 @@
                     <Setter Property="Height" Value="50" />
                 </Style>
             </DataGrid.RowStyle>
+
         </DataGrid>
 
         <Button

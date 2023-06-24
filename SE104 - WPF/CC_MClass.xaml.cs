@@ -16,6 +16,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using static SE104___WPF.CC_MStudent;
 
 namespace SE104___WPF
 {
@@ -106,19 +107,54 @@ namespace SE104___WPF
 
                     }
 
-                    //LOAD THÔNG TIN MẶC ĐỊNH TỪ DATAGRID
-                    string sql2 = "SELECT HS_ID, TENHS, NGSINH, DIACHI, EMAIL, GIOITINH " +
-                            "FROM HOCSINH " +
-                            "WHERE LOP_ID IN (SELECT LOP_ID FROM LOP WHERE TENLOP = '" + selectedTenLop + "')";
 
-                    using (sqlCon = new SqlConnection(bang))
+                    // LOAD THÔNG TIN THEO CỘT TỪ DATAGRID
+                    string sql2 = "SELECT HS_ID, TENHS, NGSINH, DIACHI, EMAIL, GIOITINH " +
+                                    "FROM HOCSINH " +
+                                    "WHERE LOP_ID IN (SELECT LOP_ID FROM LOP WHERE TENLOP = '" + selectedTenLop + "')";
+                    using (SqlConnection sqlCon = new SqlConnection(bang))
                     {
                         sqlCon.Open();
-                        sqlDa = new SqlDataAdapter(sql2, sqlCon);
-                        dtbStudent = new DataTable();
-                        sqlDa.Fill(dtbStudent);
-                        sqlCon.Close();
-                        dataGridViewClass.ItemsSource = dtbStudent.DefaultView;
+                        using (SqlCommand cmd = new SqlCommand(sql2, sqlCon))
+                        {
+                            using (SqlDataReader reader = cmd.ExecuteReader())
+                            {
+                                List<Class> students = new List<Class>();
+                                while (reader.Read())
+                                {
+                                    Class student = new Class();
+                                    student.ID = reader["HS_ID"].ToString();
+                                    student.Fullname = reader["TENHS"].ToString();
+
+                                    student.Birthday = Convert.ToDateTime(reader["NGSINH"]).Date;
+
+                                    student.Address = reader["DIACHI"].ToString();
+                                    student.Email = reader["EMAIL"].ToString();
+                                    //student.Gender = reader["GIOITINH"].ToString();
+                                    bool gioiTinhBit = Convert.ToBoolean(reader["GIOITINH"]);
+                                    student.Gender = gioiTinhBit ? "Male" : "Female";
+                                    students.Add(student);
+                                }
+
+                                // Gán danh sách students làm nguồn dữ liệu cho DataGrid
+                                dataGridViewClass.ItemsSource = students;
+
+                                dataGridViewClass.AutoGenerateColumns = false;
+
+                                // Xác định tên các cột không mong muốn
+                                string[] unwantedColumns = { "ID", "Fullname", "Birthday", "Address", "Email", "Gender" };
+
+                                // Xóa các cột không mong muốn khỏi DataGrid
+                                foreach (var columnName in unwantedColumns)
+                                {
+                                    var unwantedColumn = dataGridViewClass.Columns.FirstOrDefault(c => c.Header.ToString() == columnName);
+                                    if (unwantedColumn != null)
+                                    {
+                                        dataGridViewClass.Columns.Remove(unwantedColumn);
+                                    }
+                                }
+                            }
+                        }
                     }
                 }
             }
@@ -432,10 +468,8 @@ namespace SE104___WPF
         {
             if (dataGridViewClass.SelectedItem != null)
             {
-                DataRowView selectedRow = (DataRowView)dataGridViewClass.SelectedItem;
-
-                selectedID = selectedRow["HS_ID"].ToString();
-
+                Class student = (Class)dataGridViewClass.SelectedItem;
+                selectedID = student.ID;
 
             }
         }

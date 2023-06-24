@@ -15,7 +15,7 @@
         mc:Ignorable="d"
         Title="UpdateClass" Height="340" Width="429">
     <Grid>
-        <TextBlock Margin="150,15,144,240" 
+        <TextBlock Margin="150,15,126,240" 
             RenderTransformOrigin="-0.069,0.593" 
             FontSize="18"
             Foreground="#71AADC"

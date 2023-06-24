@@ -15,6 +15,7 @@ using static SE104___WPF.CC_MStudent;
 using System.Collections.Generic;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Linq;
 
 namespace SE104___WPF
 {
@@ -75,7 +76,9 @@ namespace SE104___WPF
                             Student student = new Student();
                             student.ID = reader["HS_ID"].ToString();
                             student.Fullname = reader["TENHS"].ToString();
-                            student.Birthday = Convert.ToDateTime(reader["NGSINH"]);
+                             
+                            student.Birthday = Convert.ToDateTime(reader["NGSINH"]).Date;
+
                             student.Address = reader["DIACHI"].ToString();
                             student.Email = reader["EMAIL"].ToString();
                             //student.Gender = reader["GIOITINH"].ToString();
@@ -86,10 +89,26 @@ namespace SE104___WPF
 
                         // Gán danh sách students làm nguồn dữ liệu cho DataGrid
                         dataGridViewStudent.ItemsSource = students;
+
+                        dataGridViewStudent.AutoGenerateColumns = false;
+
+                        // Xác định tên các cột không mong muốn
+                        string[] unwantedColumns = { "ID", "Fullname", "Birthday", "Address", "Email", "Gender" };
+
+                        // Xóa các cột không mong muốn khỏi DataGrid
+                        foreach (var columnName in unwantedColumns)
+                        {
+                            var unwantedColumn = dataGridViewStudent.Columns.FirstOrDefault(c => c.Header.ToString() == columnName);
+                            if (unwantedColumn != null)
+                            {
+                                dataGridViewStudent.Columns.Remove(unwantedColumn);
+                            }
+                        }
                     }
                 }
             }
 
+            
 
         }
 
@@ -174,17 +193,53 @@ namespace SE104___WPF
                 return;
             }
 
-            string sql = "SELECT * FROM HOCSINH WHERE LOWER(TENHS) LIKE '%' + @Name + '%'";
-            using (sqlCon = new SqlConnection(bang))
+            string sql = "SELECT * FROM HOCSINH WHERE LOWER(TENHS) LIKE '%" + nameStd + "%'";
+
+            using (SqlConnection sqlCon = new SqlConnection(bang))
             {
+                
                 sqlCon.Open();
-                sqlCom = new SqlCommand(sql, sqlCon);
-                sqlCom.Parameters.AddWithValue("@Name", nameStd);
-                sqlDa = new SqlDataAdapter(sqlCom);
-                dtbStudent = new DataTable();
-                sqlDa.Fill(dtbStudent);
-                dataGridViewStudent.ItemsSource = dtbStudent.DefaultView;
-                sqlCon.Close();
+                using (SqlCommand cmd = new SqlCommand(sql, sqlCon))
+                {
+
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        List<Student> students = new List<Student>();
+                        while (reader.Read())
+                        {
+                            Student student = new Student();
+                            student.ID = reader["HS_ID"].ToString();
+                            student.Fullname = reader["TENHS"].ToString();
+
+                            student.Birthday = Convert.ToDateTime(reader["NGSINH"]).Date;
+
+                            student.Address = reader["DIACHI"].ToString();
+                            student.Email = reader["EMAIL"].ToString();
+                            //student.Gender = reader["GIOITINH"].ToString();
+                            bool gioiTinhBit = Convert.ToBoolean(reader["GIOITINH"]);
+                            student.Gender = gioiTinhBit ? "Male" : "Female";
+                            students.Add(student);
+                        }
+
+                        // Gán danh sách students làm nguồn dữ liệu cho DataGrid
+                        dataGridViewStudent.ItemsSource = students;
+
+                        dataGridViewStudent.AutoGenerateColumns = false;
+
+                        // Xác định tên các cột không mong muốn
+                        string[] unwantedColumns = { "ID", "Fullname", "Birthday", "Address", "Email", "Gender" };
+
+                        // Xóa các cột không mong muốn khỏi DataGrid
+                        foreach (var columnName in unwantedColumns)
+                        {
+                            var unwantedColumn = dataGridViewStudent.Columns.FirstOrDefault(c => c.Header.ToString() == columnName);
+                            if (unwantedColumn != null)
+                            {
+                                dataGridViewStudent.Columns.Remove(unwantedColumn);
+                            }
+                        }
+                    }
+                }
             }
         }
 

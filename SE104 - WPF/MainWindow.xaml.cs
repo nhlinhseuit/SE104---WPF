@@ -115,9 +115,20 @@ namespace SE104___WPF
 
         private void btnLogout_Click(object sender, RoutedEventArgs e)
         {
-            SigninWindow loginWindow = new SigninWindow();
-            this.Hide();
-            loginWindow.Show ();
+            MessageBoxResult result = MessageBox.Show("Are you sure want to log out?",
+               "Yes", MessageBoxButton.YesNo, MessageBoxImage.Question);
+
+            if (result == MessageBoxResult.Yes)
+            {
+                SigninWindow loginWindow = new SigninWindow();
+                this.Hide();
+                loginWindow.Show(); 
+            }
+            else
+            {
+                return;
+            }
+            
         }
     }
 }

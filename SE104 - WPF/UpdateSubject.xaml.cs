@@ -13,6 +13,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using static SE104___WPF.CC_MClass;
 
 namespace SE104___WPF
 {
@@ -91,21 +92,42 @@ namespace SE104___WPF
             string subjectID = SubjectCbb.SelectedItem.ToString();
             if (subjectName == null)
             {
-                MessageBox.Show("EROR!");
+                MessageBox.Show("EROR: Subject name of Subject ID is null!");
             }
             else
             {
-                SqlConnection sqlConString = new SqlConnection(bang);
-                sqlConString.Open();
-                string sql2 = "UPDATE MONHOC SET TENMH = @TenMH " +
-                    "WHERE MH_ID = @MHID";
-                SqlCommand sql = new SqlCommand(sql2, sqlConString);
-                sql.Parameters.AddWithValue("@TenMH", subjectName);
-                sql.Parameters.AddWithValue("@MHID", subjectID);
-                sql.ExecuteNonQuery();
-                sqlConString.Close();
-                MessageBox.Show("Update subject name successfully!");
-                this.Close();
+                using (SqlConnection sqlCon = new SqlConnection(bang))
+                {
+                    sqlCon.Open();
+                    string selectQueryClassname = "SELECT COUNT(*) FROM MONHOC WHERE TENMH = @TenMH";
+                    using (SqlCommand selectCmd2 = new SqlCommand(selectQueryClassname, sqlCon))
+                    {
+                        selectCmd2.Parameters.AddWithValue("@TenMH", subjectName);
+                        int existingCount = (int)selectCmd2.ExecuteScalar();
+
+                        if (existingCount > 0)
+                        {
+                            // Tên lớp đã tồn tại, báo lỗi hoặc thực hiện xử lý phù hợp
+                            MessageBox.Show("Subject's already existed!!");
+                            return;
+                        }
+                        else
+                        {
+                            string sql2 = "UPDATE MONHOC SET TENMH = @TenMH " +
+                                "WHERE MH_ID = @MHID";
+                            SqlCommand sql = new SqlCommand(sql2, sqlCon);
+                            sql.Parameters.AddWithValue("@TenMH", subjectName);
+                            sql.Parameters.AddWithValue("@MHID", subjectID);
+                            sql.ExecuteNonQuery();
+                            sqlCon.Close();
+                            MessageBox.Show("Update subject name successfully!");
+                        }
+
+                        // Truy vấn INSERT để thêm giá trị mới vào bảng LOP
+                        this.Close();
+
+                    }
+                }
             }
         }
 

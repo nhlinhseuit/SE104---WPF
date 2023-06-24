@@ -15,6 +15,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using static SE104___WPF.CC_MClass;
 using static SE104___WPF.CC_MStudent;
 
 namespace SE104___WPF
@@ -49,6 +50,20 @@ namespace SE104___WPF
         String txtboxDiem15;
         String txtboxDime45;
         String txtboxDiemCK;
+
+        public class Grade
+        {
+            public string ID { get; set; }
+            public string Fullname { get; set; }
+            public float DIEM15 { get; set; }
+            public float DIEM45 { get; set; }
+            public float DIEMCK { get; set; }
+            public float DIEMTB { get; set; }
+
+            // Các trường dữ liệu khác
+        }
+
+        Grade selected;
 
 
         private void loadGradeCombobox()
@@ -178,19 +193,52 @@ namespace SE104___WPF
                     "AND LOP.LOP_ID IN (SELECT LOP_ID FROM LOP WHERE TENLOP = '" + selectedClassID + "' ) " +
                     "AND HOCKY.HK_ID IN (SELECT HK_ID FROM HOCKY WHERE TENHK = '" + selectedSemesterID + "' ) " +
                     "AND MONHOC.MH_ID IN (SELECT MH_ID FROM MONHOC WHERE TENMH = '" + selectedSubjectID + "' )";
-                    
-                SqlCommand command = new SqlCommand(sql, connection);
-                using (sqlCon = new SqlConnection(bang))
+
+                using (SqlConnection sqlCon = new SqlConnection(bang))
                 {
-                    
                     sqlCon.Open();
-                    
-                    sqlDa = new SqlDataAdapter(sql, sqlCon);
-                    dtbStudent = new DataTable();
-                    sqlDa.Fill(dtbStudent);
-                    sqlCon.Close();
-                    dataGridViewGrade.ItemsSource = dtbStudent.DefaultView;
+                    using (SqlCommand cmd = new SqlCommand(sql, sqlCon))
+                    {
+                        using (SqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            List<Grade> students = new List<Grade>();
+                            while (reader.Read())
+                            {
+                                Grade student = new Grade();
+                                student.ID = reader["HS_ID"].ToString();
+                                student.Fullname = reader["TENHS"].ToString();
+
+                                student.DIEM15 = Convert.ToSingle(reader["DIEM15"]);
+                                student.DIEM45 = Convert.ToSingle(reader["DIEM45"]);
+                                student.DIEMCK = Convert.ToSingle(reader["DIEMHK"]);
+                                student.DIEMTB = Convert.ToSingle(reader["DIEMTB"]);
+
+
+                                students.Add(student);
+                            }
+
+                            // Gán danh sách students làm nguồn dữ liệu cho DataGrid
+                            dataGridViewGrade.ItemsSource = students;
+
+                            dataGridViewGrade.AutoGenerateColumns = false;
+
+                            // Xác định tên các cột không mong muốn
+                            string[] unwantedColumns = { "ID", "Fullname", "DIEM15", "DIEM45", "DIEMCK", "DIEMTB" };
+
+                            // Xóa các cột không mong muốn khỏi DataGrid
+                            foreach (var columnName in unwantedColumns)
+                            {
+                                var unwantedColumn = dataGridViewGrade.Columns.FirstOrDefault(c => c.Header.ToString() == columnName);
+                                if (unwantedColumn != null)
+                                {
+                                    dataGridViewGrade.Columns.Remove(unwantedColumn);
+                                }
+                            }
+                        }
+                    }
                 }
+
+               
                 
             }
         }
@@ -198,7 +246,7 @@ namespace SE104___WPF
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             string selectedCbbClass = ClassCombobox.SelectedItem.ToString();
-            EnterGrade enterGrade = new EnterGrade( selectedCbbClass);
+            EnterGrade enterGrade = new EnterGrade(selectedCbbClass);
             enterGrade.Show();
             enterGrade.Closed += (sender, args) => loadThongTin();
         }
@@ -256,14 +304,16 @@ namespace SE104___WPF
         {
             if (dataGridViewGrade.SelectedItem != null)
             {
-                DataRowView selectedRow = (DataRowView)dataGridViewGrade.SelectedItem;
+
+                Grade student = (Grade)dataGridViewGrade.SelectedItem;
+
                 String selectedSemesterID = SemesterCombobox.SelectedItem.ToString();
                 String selectedSubjectID = SubjectCombobox.SelectedItem.ToString();
 
-                string hsID = selectedRow["HS_ID"].ToString();
-                string diem45 = selectedRow["DIEM45"].ToString();
-                string diem15 = selectedRow["DIEM15"].ToString();
-                string diemHK = selectedRow["DIEMHK"].ToString();
+                string hsID = student.ID;
+                string diem45 = student.DIEM45.ToString();
+                string diem15 = student.DIEM15.ToString();
+                string diemHK = student.DIEMCK.ToString();
 
                 // Gán các giá trị vào các textbox hoặc nơi bạn muốn hiển thị
                 txtboxMonhoc = selectedSubjectID;
@@ -339,7 +389,11 @@ namespace SE104___WPF
 
         private void SubjectCombobox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            loadThongTin();
+            if (GradeCombobox.SelectedItem != null
+                    && ClassCombobox.SelectedItem != null && SemesterCombobox.SelectedItem != null)
+            {
+                loadThongTin();
+            }
         }
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
@@ -347,8 +401,8 @@ namespace SE104___WPF
             String selectedHSID;
             if (dataGridViewGrade.SelectedItem != null)
             {
-                DataRowView selectedRow = (DataRowView)dataGridViewGrade.SelectedItem;
-                selectedHSID = selectedRow["HS_ID"].ToString();
+                Grade selectedRow = (Grade)dataGridViewGrade.SelectedItem;
+                selectedHSID = selectedRow.ID.ToString();
 
                 String selectedSemesterID = SemesterCombobox.SelectedItem.ToString();
                 String selectedSubjectID = SubjectCombobox.SelectedItem.ToString();
